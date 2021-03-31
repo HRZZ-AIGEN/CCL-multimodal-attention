@@ -1,11 +1,10 @@
 # CCL-multimodal-attentio
 Multimodal attention model for modeling PPI interaction in cancer cell lines<br/>
-<br/>
 
 # Requriements
 pytorch=1.8.0 <br/>
 pytorch-geometric=1.6.3 <br/>
-<br/>
+
 # Installation
 Create a conda or virutal env <br/>
 $ conda create -n cancer_multimodal_attention <br/>
