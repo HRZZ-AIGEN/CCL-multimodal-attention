@@ -1,4 +1,4 @@
-# CCL-multimodal-attentio
+# Cancer cell line drug response modeling based on multimodal attention networks
 Multimodal attention model for modeling PPI interaction in cancer cell lines<br/>
 
 # Requriements
