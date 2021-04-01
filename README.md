@@ -11,7 +11,7 @@ $ conda create -n cancer_multimodal_attention <br/>
 $ conda activate cancer_multimodal_attention <br/>
 <br/>
 Install Pytorch with <br/>
-$ conda install pytorch cudatoolkit=10.2 -c pytorch <br/>
+$ conda install pytorch==1.8.0 cudatoolkit=10.2 -c pytorch <br/>
 <br/>
 Install Pytorch geometric with corresponding CUDA version<br/>
 $ pip install torch-scatter -f https://pytorch-geometric.com/whl/torch-1.8.0+cu102.html <br/>
