@@ -1,5 +1,5 @@
 # Cancer cell line drug response modeling based on multimodal attention networks
-Multimodal attention model for modeling PPI interaction in cancer cell lines<br/>
+Multimodal attention model for modeling drug response based on PPI interactions in cancer cell lines<br/>
 
 # Requriements
 pytorch==1.8.0 <br/>
