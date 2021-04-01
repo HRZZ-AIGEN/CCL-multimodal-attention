@@ -40,9 +40,6 @@ def create_gdsc_split(split='random'):
             for i in ppi_graphs:
                 cell_names.append(i.cell_name)
 
-            """Delete"""
-            gdsc = gdsc.sample(1000)
-
             gdsc = gdsc.merge(sample_info, how='inner', left_on='Cosmic sample Id', right_on='COSMICID')
             gdsc = gdsc.loc[gdsc['RRID'].isin(cell_names)]
             gdsc = gdsc.merge(smiles[['name', 'CanonicalSMILES']], how='inner', left_on='Drug name', right_on='name')
@@ -72,9 +69,6 @@ def create_gdsc_split(split='random'):
             gdsc = pd.read_csv(root / 'data/raw/GDSC_data/PANCANCER_IC.csv')
             smiles = pd.read_csv(root / 'data/raw/GDSC_data/drug_smiles.csv')
             sample_info = pd.read_csv(root / 'data/processed/sample_info.csv')[['COSMICID', 'RRID']]
-
-            """Delete"""
-            gdsc = gdsc.sample(1000)
 
             cell_names = []
             for i in ppi_graphs:
@@ -167,9 +161,6 @@ def train_test_split(dataset='GDSC', split='random'):
         bad_cids = [117560, 23939, 0, 23976]
         # drop Cr atom from CTRP
         data = data.drop(data.loc[data["pubchem_cid"].isin(bad_cids)].index)
-
-        """DELETE"""
-        data = data.sample(1000)
 
         if split == 'random':
             """Randomly split on unknown drugs"""
