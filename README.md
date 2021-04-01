@@ -19,7 +19,6 @@ $ pip install torch-sparse -f https://pytorch-geometric.com/whl/torch-1.8.0+cu10
 $ pip install torch-cluster -f https://pytorch-geometric.com/whl/torch-1.8.0+cu102.html <br/>
 $ pip install torch-spline-conv -f https://pytorch-geometric.com/whl/torch-1.8.0+cu102.html <br/>
 $ pip install git+https://github.com/rusty1s/pytorch_geometric.git <br/>
-<br/>
 
 # Run training
 python train_gdsc_benchmark.py --split=blind --seed 42 --batch_size 32 --epochs 300 --gpu 1 <br />
