@@ -7,7 +7,7 @@ pytorch-geometric==1.6.3 (git master!)<br/>
 
 # Installation
 Create a conda virutal env from src folder <br/>
-$ conda env create --file cc_multimodal_attention.yml <br/>
+$ conda env create --file ccl_multimodal_attention.yml <br/>
 $ conda activate cancer_multimodal_attention <br/>
 <br/>
 Install Pytorch with <br/>
