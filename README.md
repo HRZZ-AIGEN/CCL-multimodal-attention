@@ -2,8 +2,8 @@
 Multimodal attention model for modeling PPI interaction in cancer cell lines<br/>
 
 # Requriements
-pytorch=1.8.0 <br/>
-pytorch-geometric=1.6.3 <br/>
+pytorch==1.8.0 <br/>
+pytorch-geometric==1.6.3 <br/>
 
 # Installation
 Create a conda or virutal env <br/>
@@ -18,7 +18,7 @@ $ pip install torch-scatter -f https://pytorch-geometric.com/whl/torch-1.8.0+cu1
 $ pip install torch-sparse -f https://pytorch-geometric.com/whl/torch-1.8.0+cu102.html <br/>
 $ pip install torch-cluster -f https://pytorch-geometric.com/whl/torch-1.8.0+cu102.html <br/>
 $ pip install torch-spline-conv -f https://pytorch-geometric.com/whl/torch-1.8.0+cu102.html <br/>
-$ pip install torch-geometric <br/>
+$ pip install torch-geometric==1.6.3 <br/>
 <br/>
 Install required depenencies <br/>
 $ conda env update --file CCL_multimodal_attention.yml <br/>
