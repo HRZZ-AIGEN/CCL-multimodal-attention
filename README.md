@@ -14,10 +14,10 @@ Install Pytorch with <br/>
 $ conda install pytorch cudatoolkit=10.2 -c pytorch <br/>
 <br/>
 Install Pytorch geometric with corresponding CUDA version<br/>
-$ pip install torch-scatter -f https://pytorch-geometric.com/whl/torch-1.8.0+cu102.html <br/>
-$ pip install torch-sparse -f https://pytorch-geometric.com/whl/torch-1.8.0+cu102.html <br/>
-$ pip install torch-cluster -f https://pytorch-geometric.com/whl/torch-1.8.0+cu102.html <br/>
-$ pip install torch-spline-conv -f https://pytorch-geometric.com/whl/torch-1.8.0+cu102.html <br/>
+$ pip install torch-scatter -f https://pytorch-geometric.com/whl/torch-1.6.3+cu102.html <br/>
+$ pip install torch-sparse -f https://pytorch-geometric.com/whl/torch-1.6.3+cu102.html <br/>
+$ pip install torch-cluster -f https://pytorch-geometric.com/whl/torch-1.6.3+cu102.html <br/>
+$ pip install torch-spline-conv -f https://pytorch-geometric.com/whl/torch-1.6.3+cu102.html <br/>
 $ pip install torch-geometric <br/>
 <br/>
 Install required depenencies <br/>
