@@ -219,7 +219,6 @@ def main(split, batch_size, epochs, seed, gpu):
         batch_size=batch_size,
         epochs=epochs,
         reduce_lr=True,
-        # ckpt_path='/home/dfa/GDSC_tests/models/graph_drp/1615370316/checkpoint/epoch=44.ckpt'
     )
     data_dir = Path(create_gdsc_split(split))  # data seed is 42
 

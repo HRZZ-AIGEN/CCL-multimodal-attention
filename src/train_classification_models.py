@@ -160,7 +160,7 @@ class MultimodalAttentionNet(pl.LightningModule, ABC):
             'scheduler': ReduceLROnPlateau(
                 opt,
                 mode='min',
-                patience=15,
+                patience=10,
                 factor=0.5,
             ),
             'monitor': 'val_loss'
@@ -222,13 +222,14 @@ class MultimodalAttentionNet(pl.LightningModule, ABC):
 @click.option('--epochs', default=300, help='Number of epochs')
 @click.option('--ppi_depth', default=3, help='Number of GATConv layers in PPI network')
 @click.option('--gpu', default=0, help='CUDA GPU order')
-def main(dataset, split, seed, batch_size, epochs, ppi_depth, gpu):
+@click.option('--checkpoint', default=None, help='Resume training from checkpoint', type=click.STRING)
+def main(dataset, split, seed, batch_size, epochs, ppi_depth, gpu, checkpoint):
     conf = Conf(
         lr=1e-4,
         batch_size=batch_size,
         epochs=epochs,
         reduce_lr=True,
-        # ckpt_path='/home/dfa/GDSC_tests/models/graph_drp/1615370316/checkpoint/epoch=44.ckpt'
+        ckpt_path=checkpoint
     )
 
     data_dir = Path(train_test_split(dataset, split))  # data seed is 42
@@ -266,7 +267,7 @@ def main(dataset, split, seed, batch_size, epochs, ppi_depth, gpu):
     early_stop_callback = EarlyStopping(monitor='val_ap_epoch',
                                         min_delta=0.00,
                                         mode='max',
-                                        patience=25,
+                                        patience=15,
                                         verbose=False)
 
     print("Starting training")
