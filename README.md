@@ -1,5 +1,5 @@
 # Cancer cell line drug response modeling based on multimodal attention networks
-Multimodal attention model for modeling PPI interaction in cancer cell lines<br/>
+Multimodal attention model for modeling drug response based on PPI interactions in cancer cell lines<br/>
 
 # Requriements
 pytorch==1.8.0 <br/>
@@ -8,7 +8,7 @@ pytorch-geometric==1.6.3 (git master!)<br/>
 # Installation
 Create a conda virutal env from src folder <br/>
 $ conda env create --file ccl_multimodal_attention.yml <br/>
-$ conda activate cancer_multimodal_attention <br/>
+$ conda activate ccl_multimodal_attention <br/>
 <br/>
 Install Pytorch with <br/>
 $ conda install pytorch==1.8.0 cudatoolkit=10.2 -c pytorch <br/>
