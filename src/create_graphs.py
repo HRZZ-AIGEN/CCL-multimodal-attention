@@ -317,7 +317,7 @@ class PPIGraphs(InMemoryDataset, ABC):
 
 
 class PairDataset(torch.utils.data.Dataset):
-    def __init__(self, labels_path, setting='classification'):
+    def __init__(self, labels_path):
         self.root = Path(__file__).resolve().parents[1].absolute()
         self.molecular_graphs = MolecularGraphs(self.root / "data/processed")
         self.ppi_graphs = PPIGraphs(self.root / "data/processed")
@@ -373,9 +373,13 @@ def collate(data_list):
 
     batchA = [torch.Tensor(features) for features in (list_adj_mat, list_dist_mat, list_node_feat)]
     batchB = Batch.from_data_list([data[1] for data in data_list])
-    target = torch.Tensor([data[2] for data in data_list])
-    return batchA, batchB, target
 
+    try:
+        target = torch.Tensor([data[2] for data in data_list])
+        return batchA, batchB, target
+
+    except:
+        return batchA, batchB
 
 def pad_array(array, shape, dtype=np.float32):
     """Pad 2D input molecular arrays to same size"""
@@ -584,6 +588,163 @@ class PairDatasetBenchmark(torch.utils.data.Dataset):
 
     def __len__(self):
         return len(self.labels)
+
+
+
+"""Dataset creator for creating datasets for inference"""
+
+
+class InferenceDataset(torch.utils.data.Dataset):
+    """PPI graphs are read from the torch PPI graphs file, while mol graphs are created"""
+    def __init__(self, drug_id, smiles, cellosaurus_accession):
+        self.labels = (pd.DataFrame({'smiles': smiles,
+                                     'cellosaurus_accession': cellosaurus_accession,
+                                     'drug_id': drug_id}))
+        self.root = Path(__file__).resolve().parents[1].absolute()
+        self.ppi_graphs = PPIGraphs(self.root/'data/processed/')
+
+        # get indices with cellosaurus accessions
+        cell_index = []
+        cellosaurus_accession = []
+        i = 0
+        for ppi_graph in self.ppi_graphs:
+            cell_index.append(i)
+            cellosaurus_accession.append(ppi_graph.cell_name)
+            i += 1
+        self.cell_indices = pd.Series(data=cell_index, index=cellosaurus_accession)
+
+        self.molecular_graphs = []
+        mol_index = []
+        drug_ids = []
+        i = 0
+        for index, mol_graph in self.labels.iterrows():
+            self.molecular_graphs.append(self.make_mol_graph(mol_graph['smiles']))
+            drug_ids.append(mol_graph['drug_id'])
+            mol_index.append(i)
+            i += 1
+        self.molecular_indices = pd.Series(data=mol_index, index=drug_ids)
+
+    def __getitem__(self, idx):
+        item = self.labels.iloc[idx]
+        """
+        if len(item) > 1:
+            ppi_graph_idx = self.cell_indices[item['cellosaurus_accession']]
+            mol_graph_idx = self.molecular_indices[item['pubchem_cid']]
+            return self.molecular_graphs[mol_graph_idx.tolist()], self.ppi_graphs[ppi_graph_idx.tolist()]
+        else:
+        """
+        ppi_graph_idx = self.cell_indices[item['cellosaurus_accession']]
+        mol_graph_idx = self.molecular_indices[item['drug_id']]
+        return [self.molecular_graphs[mol_graph_idx.tolist()]], [self.ppi_graphs[ppi_graph_idx.tolist()]]
+
+    def __len__(self):
+        return len(self.labels)
+
+    def make_mol_graph(self, smiles):
+        bonds = {BT.SINGLE: 0, BT.DOUBLE: 1, BT.TRIPLE: 2, BT.AROMATIC: 3}
+        stereo = {BS.STEREONONE: 0, BS.STEREOANY: 1, BS.STEREOZ: 2,
+                  BS.STEREOE: 3, BS.STEREOCIS: 4, BS.STEREOTRANS: 5}
+        direction = {BD.NONE: 0, BD.BEGINWEDGE: 1, BD.BEGINDASH: 2,
+                     BD.ENDDOWNRIGHT: 3, BD.ENDUPRIGHT: 4, BD.EITHERDOUBLE: 5,
+                     BD.UNKNOWN: 6}
+
+        fdef_name = Path(RDConfig.RDDataDir) / 'BaseFeatures.fdef'
+        factory = ChemicalFeatures.BuildFeatureFactory(str(fdef_name))
+        mol = Chem.MolFromSmiles(smiles)
+        N = mol.GetNumAtoms()
+
+        """ Features """
+        atomic_number = []
+        aromatic = []
+        donor = []
+        acceptor = []
+        s = []
+        sp = []
+        sp2 = []
+        sp3 = []
+        sp3d = []
+        sp3d2 = []
+        num_hs = []
+
+        for atom in mol.GetAtoms():
+            atomic_number.append(atom.GetAtomicNum())
+            aromatic.append(1 if atom.GetIsAromatic() else 0)
+            hybridization = atom.GetHybridization()
+            donor.append(0)
+            acceptor.append(0)
+            s.append(1 if hybridization == HybridizationType.S
+                     else 0)
+            sp.append(1 if hybridization == HybridizationType.SP
+                      else 0)
+            sp2.append(1 if hybridization == HybridizationType.SP2
+                       else 0)
+            sp3.append(1 if hybridization == HybridizationType.SP3
+                       else 0)
+            sp3d.append(1 if hybridization == HybridizationType.SP3D
+                        else 0)
+            sp3d2.append(1 if hybridization == HybridizationType.SP3D2
+                         else 0)
+
+            num_hs.append(atom.GetTotalNumHs(includeNeighbors=True))
+
+        feats = factory.GetFeaturesForMol(mol)
+        for j in range(0, len(feats)):
+            if feats[j].GetFamily() == 'Donor':
+                node_list = feats[j].GetAtomIds()
+                for k in node_list:
+                    donor[k] = 1
+            elif feats[j].GetFamily() == 'Acceptor':
+                node_list = feats[j].GetAtomIds()
+                for k in node_list:
+                    acceptor[k] = 1
+
+        x = torch.tensor([atomic_number,
+                          acceptor,
+                          donor,
+                          aromatic,
+                          s, sp, sp2, sp3, sp3d, sp3d2,
+                          num_hs],
+                         dtype=torch.float).t().contiguous()
+
+        row, col, bond_idx, bond_stereo, bond_dir = [], [], [], [], []
+        for bond in mol.GetBonds():
+            start, end = bond.GetBeginAtomIdx(), bond.GetEndAtomIdx()
+            row += [start, end]
+            col += [end, start]
+            bond_idx += 2 * [bonds[bond.GetBondType()]]
+            bond_stereo += 2 * [stereo[bond.GetStereo()]]
+            bond_dir += 2 * [direction[bond.GetBondDir()]]
+            # 2* list, because the bonds are defined 2 times, start -> end,
+            # and end -> start
+
+        """ Create distance matrix """
+        try:
+            mol = Chem.AddHs(mol)
+            AllChem.EmbedMolecule(mol, maxAttempts=5000)
+            AllChem.UFFOptimizeMolecule(mol)
+            mol = Chem.RemoveHs(mol)
+        except:
+            AllChem.Compute2DCoords(mol)
+
+        conf = mol.GetConformer()
+        pos_matrix = np.array(
+            [[conf.GetAtomPosition(k).x, conf.GetAtomPosition(k).y, conf.GetAtomPosition(k).z]
+             for k in range(mol.GetNumAtoms())])
+        dist_matrix = pairwise_distances(pos_matrix)
+
+        adj_matrix = np.eye(mol.GetNumAtoms())
+        for bond in mol.GetBonds():
+            begin_atom = bond.GetBeginAtom().GetIdx()
+            end_atom = bond.GetEndAtom().GetIdx()
+            adj_matrix[begin_atom, end_atom] = adj_matrix[end_atom, begin_atom] = 1
+
+        data = MolData(
+            x=x,
+            adj_matrix=adj_matrix,
+            dist_matrix=dist_matrix,
+        )
+
+        return data
 
 
 

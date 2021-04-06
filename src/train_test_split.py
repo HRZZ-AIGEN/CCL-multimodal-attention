@@ -2,7 +2,6 @@ from pathlib import Path
 import pandas as pd
 import random
 from create_graphs import PPIGraphs, MolecularGraphsGDSC, MolecularGraphs
-from tqdm import tqdm
 import requests
 import zipfile
 import shutil
