@@ -160,44 +160,48 @@ class Evaluation:
         blind_cells = pd.read_csv(blind_cells, index_col=0)
         cell_ids = blind_cells['cellosaurus_accession'].unique()
         for i in cell_ids:
-            ap, auc = self.calculate_metrics(i, split)
+            df = blind_cells.loc[blind_cells['cellosaurus_accession'] == i]
+            ap, auc = self.calculate_metrics(df, split)
             id_blind_cells.append(i)
             ap_blind_cells.append(ap)
             auc_blind_cells.append(auc)
 
         # calculate blind cells
         blind_drugs = pd.read_csv(blind_drugs, index_col=0)
-        for i in blind_drugs:
-            ap, auc = self.calculate_metrics(i, split)
+        blind_drugs_ids = blind_drugs['pubchem_cid'].unique()
+        for i in blind_drugs_ids:
+            df = blind_drugs.loc[blind_drugs['pubchem_cid'] == i]
+            ap, auc = self.calculate_metrics(df, split)
             id_blind_drugs.append(i)
             ap_blind_drugs.append(ap)
             auc_blind_drugs.append(auc)
 
         double_blind = pd.read_csv(double_blind, index_col=0)
-        for i in double_blind:
-            ap, auc = (self.calculate_metrics(i, split))
+        double_blind_cell_ids = double_blind['cellosaurus_accession'].unique()
+        for i in double_blind_cell_ids:
+            df = double_blind.loc[double_blind['cellosaurus_accession'] == i]
+            ap, auc = (self.calculate_metrics(df, split))
             id_double_blind.append(i)
             ap_double_blind.append(ap)
             auc_double_blind.append(auc)
 
+        results_dict = {'blind_cells': [id_blind_cells, ap_blind_cells, auc_blind_cells],
+                        'blind_drugs': [id_blind_drugs, ap_blind_drugs, auc_blind_drugs],
+                        'double_blind': [id_double_blind, ap_double_blind, auc_double_blind]}
+
+        return results_dict
+
     def calculate_metrics(self, data, split='random'):
         """Calculate metrics on CPU if there are many elements to prevent memory errors on the GPu"""
-        """
         try:
-            dataset = PairDataset(self.data_path + data)
-            test_data = pd.read_csv(self.data_path + data)
+            dataset = PairDataset(self.data_path / data)
+            test_data = pd.read_csv(self.data_path / data)
         except:
             dataset = PairDataset(data)
             test_data = data
-        """
-
-        dataset = PairDataset(self.data_path + data)
-        test_data = pd.read_csv(self.data_path + data)
 
         test = DataLoader(dataset, 32, shuffle=False, num_workers=8, pin_memory=True, collate_fn=collate)
         predictions = []
-        drug_name = []
-        cell_name = []
 
         for batch in test:
             adj_mat, dist_mat, x = batch[0]

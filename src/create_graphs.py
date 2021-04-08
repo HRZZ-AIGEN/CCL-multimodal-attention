@@ -321,7 +321,12 @@ class PairDataset(torch.utils.data.Dataset):
         self.root = Path(__file__).resolve().parents[1].absolute()
         self.molecular_graphs = MolecularGraphs(self.root / "data/processed")
         self.ppi_graphs = PPIGraphs(self.root / "data/processed")
-        self.labels = pd.read_csv(labels_path, index_col=0)[['pubchem_cid', 'cellosaurus_accession', 'sensitivity_uM']]
+        try:
+            self.labels = pd.read_csv(labels_path, index_col=0)[[
+                'pubchem_cid', 'cellosaurus_accession', 'sensitivity_uM'
+            ]]
+        except:
+            self.labels = labels_path[['pubchem_cid', 'cellosaurus_accession', 'sensitivity_uM']]
         self.targets = self.labels['sensitivity_uM']
 
         # get indices with pubchem cids
