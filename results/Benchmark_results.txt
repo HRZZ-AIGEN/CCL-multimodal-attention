@@ -1,0 +1,2 @@
+{'gdsc_benchmark_random_42': [{'Test MSE': 0.997, 'Test RMSE': 0.999, 'Test R2': 0.869}, {'version': '1617781963'}]}
+

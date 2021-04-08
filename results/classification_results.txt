@@ -1,0 +1,15 @@
+Classification results
+{'GDSC_blind_42': [{'Test AP': 0.635, 'Test AUC-ROC': 0.72}, {'version': '1617354758'}]}
+
+{'CTRP_random_42': [{'Test AP': 0.894, 'Test AUC-ROC': 0.972}, {'version': '1617396891'}]}
+
+{'GDSC_random_42': [{'Test AP': 0.894, 'Test AUC-ROC': 0.948}, {'version': '1617533625'}]}
+
+{'GDSC_random_42_ppi_depth_2': [{'Test AP': 0.887, 'Test AUC-ROC': 0.945}, {'version': '1617570754'}]}
+
+{'GDSC_random_42_ppi_depth_1': [{'Test AP': 0.877, 'Test AUC-ROC': 0.941}, {'version': '1617614502'}]}
+
+{'CTRP_random_42_ppi_depth_1': [{'Test AP': 0.875, 'Test AUC-ROC': 0.967}, {'version': '1617641689'}]}
+
+{'CTRP_random_42_ppi_depth_2': [{'Test AP': 0.901, 'Test AUC-ROC': 0.974}, {'version': '1617709210'}]}
+

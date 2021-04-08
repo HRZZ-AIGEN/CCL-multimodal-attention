@@ -377,7 +377,6 @@ def collate(data_list):
     try:
         target = torch.Tensor([data[2] for data in data_list])
         return batchA, batchB, target
-
     except:
         return batchA, batchB
 
@@ -626,16 +625,9 @@ class InferenceDataset(torch.utils.data.Dataset):
 
     def __getitem__(self, idx):
         item = self.labels.iloc[idx]
-        """
-        if len(item) > 1:
-            ppi_graph_idx = self.cell_indices[item['cellosaurus_accession']]
-            mol_graph_idx = self.molecular_indices[item['pubchem_cid']]
-            return self.molecular_graphs[mol_graph_idx.tolist()], self.ppi_graphs[ppi_graph_idx.tolist()]
-        else:
-        """
         ppi_graph_idx = self.cell_indices[item['cellosaurus_accession']]
         mol_graph_idx = self.molecular_indices[item['drug_id']]
-        return [self.molecular_graphs[mol_graph_idx.tolist()]], [self.ppi_graphs[ppi_graph_idx.tolist()]]
+        return self.molecular_graphs[mol_graph_idx.tolist()], self.ppi_graphs[ppi_graph_idx.tolist()]
 
     def __len__(self):
         return len(self.labels)
