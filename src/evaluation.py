@@ -139,85 +139,60 @@ class Evaluation:
         return attention, cellosaurus_accession
 
     def eval_test_sets(self, split='random'):
+        id_blind_cells = []
         ap_blind_cells = []
-        ap_blind_cells_drugs = []
-        ap_blind_drugs = []
         auc_blind_cells = []
-        auc_blind_cells_drugs = []
+
+        id_double_blind = []
+        ap_double_blind = []
+        auc_double_blind = []
+
+        id_blind_drugs = []
+        ap_blind_drugs = []
         auc_blind_drugs = []
 
-        test_sets = self.data_path.glob('**/*') #list all file is data_path directory
-        blind_cells = list(test_sets)
-        print(blind_cells)
+        test_sets = list(self.data_path.glob('**/*')) #list all file is data_path directory
+        blind_cells = [test for test in test_sets if str(test).endswith('blind_cells.csv')][0]
+        blind_drugs = [test for test in test_sets if str(test).endswith('blind_drugs.csv')][0]
+        double_blind = [test for test in test_sets if str(test).endswith('double_blind.csv')][0]
 
-        print(error)
         # calculate blind drugs
-        for i in blind_drugs:
+        blind_cells = pd.read_csv(blind_cells, index_col=0)
+        cell_ids = blind_cells['cellosaurus_accession'].unique()
+        for i in cell_ids:
             ap, auc = self.calculate_metrics(i, split)
-            print("AP={} for {} blind drugs on {} split ".format(ap, i, split))
-            print("AUC={} for {} blind drugs on {} split".format(auc, i, split))
-            ap_blind_drugs.append(ap)
-            auc_blind_drugs.append(auc)
-
-        # calculate blind cells
-        for i in blind_cells:
-            ap, auc = self.calculate_metrics(i, split)
-            print("AP={} for {} blind cell on {} split ".format(ap, i, split))
-            print("AUC={} for {} blind cell on {} split ".format(auc, i, split))
+            id_blind_cells.append(i)
             ap_blind_cells.append(ap)
             auc_blind_cells.append(auc)
 
-        for i in blind_cells_drugs:
+        # calculate blind cells
+        blind_drugs = pd.read_csv(blind_drugs, index_col=0)
+        for i in blind_drugs:
+            ap, auc = self.calculate_metrics(i, split)
+            id_blind_drugs.append(i)
+            ap_blind_drugs.append(ap)
+            auc_blind_drugs.append(auc)
+
+        double_blind = pd.read_csv(double_blind, index_col=0)
+        for i in double_blind:
             ap, auc = (self.calculate_metrics(i, split))
-            print("AP={} for {} blind cell, blind drugs on {} split ".format(ap, i, split))
-            print("AUC={} for {} blind cell, blind drugs on {} split ".format(auc, i, split))
-            ap_blind_cells_drugs.append(ap)
-            auc_blind_cells_drugs.append(auc)
-
-        if self.dataset == 'NCI60':
-            train = pd.read_csv(self.data_path + 'nci_train.csv', index_col=0)
-            val = pd.read_csv(self.data_path + 'nci_valid.csv', index_col=0)
-            cvcl_0031 = pd.read_csv(self.data_path + '/CVCL_0031_blind_drugs.csv', index_col=0)
-            blind_drugs = cvcl_0031['pubchem_cid'].unique()
-            cell_lines_train = train['cellosaurus_accession'].unique()
-            for cell in cell_lines_train:
-                cell_data = self.labels.loc[(self.labels['cellosaurus_accession'] == cell) &
-                                            (self.labels['pubchem_cid'].isin(blind_drugs))]
-                if split == 'scaffold':
-                    cell_data = cell_data.loc[~cell_data['scaffolds'].isin(train['scaffolds'])]
-                    cell_data = cell_data.loc[~cell_data['scaffolds'].isin(val['scaffolds'])]
-                ap, auc = self.calculate_metrics(cell_data, split)
-                print("AP={} for {} blind drugs on {} split ".format(ap, cell, split))
-                print("AUC={} for {} blind drugs on {} split ".format(auc, cell, split))
-                ap_blind_drugs.append(ap)
-                auc_blind_drugs.append(auc)
-
-        print('\n')
-        print(
-            "Blind cells test with {} split: AUC={}; AP={}".format(
-                split, np.mean(auc_blind_cells), np.mean(ap_blind_cells)
-            )
-        )
-
-        print(
-            "Blind drugs test with {} split: AUC={}; AP={}".format(
-                split, np.mean(auc_blind_drugs), np.mean(ap_blind_drugs)
-            )
-        )
-
-        print(
-            "Blind cells, blind drugs, test with {} split: AUC={}; AP={}".format(
-                split, np.mean(auc_blind_cells_drugs), np.mean(ap_blind_cells_drugs)
-            )
-        )
+            id_double_blind.append(i)
+            ap_double_blind.append(ap)
+            auc_double_blind.append(auc)
 
     def calculate_metrics(self, data, split='random'):
+        """Calculate metrics on CPU if there are many elements to prevent memory errors on the GPu"""
+        """
         try:
             dataset = PairDataset(self.data_path + data)
             test_data = pd.read_csv(self.data_path + data)
         except:
             dataset = PairDataset(data)
             test_data = data
+        """
+
+        dataset = PairDataset(self.data_path + data)
+        test_data = pd.read_csv(self.data_path + data)
 
         test = DataLoader(dataset, 32, shuffle=False, num_workers=8, pin_memory=True, collate_fn=collate)
         predictions = []
@@ -225,45 +200,90 @@ class Evaluation:
         cell_name = []
 
         for batch in test:
-            x = batch[0].x
-            edge_index = batch[0].edge_index
-            mol_batch = batch[0].batch
-            edge_attr = batch[0].edge_attr
+            adj_mat, dist_mat, x = batch[0]
             x_ppi = batch[1].x
             ppi_edge_index = batch[1].edge_index
             ppi_batch = batch[1].batch
-            y_hat, attention, attention_ppi = self.model(
+            mask = torch.sum(torch.abs(x), dim=-1) != 0
+            y_hat, _ = self.model(
                 x,
-                edge_index,
-                edge_attr,
-                mol_batch,
+                adj_mat,
+                dist_mat,
+                mask,
                 x_ppi,
                 ppi_edge_index,
                 ppi_batch,
             )
-            y_hat = y_hat.squeeze(-1)
+            y_hat = y_hat.squeeze(-1).detach().cpu().numpy()
             predictions.append(y_hat.cpu().detach().numpy().flatten().tolist())
-            drug_name.append(batch[0].drug_name)
-            cell_name.append(batch[1].cell_name)
-        predictions = [item for sublist in predictions for item in sublist]
-        drug_name = [item for sublist in drug_name for item in sublist]
-        cell_name = [item for sublist in cell_name for item in sublist]
 
+        predictions = [item for sublist in predictions for item in sublist]
         prediction_df = pd.DataFrame({'predictions': predictions,
-                                      'pubchem_cid': drug_name,
-                                      'cellosaurus_accession': cell_name})
-        train_data = pd.read_csv(self.data_path + 'nci_train.csv')
-        val_data = pd.read_csv(self.data_path + 'nci_valid.csv')
-        prediction_df = prediction_df.merge(test_data[['cellosaurus_accession',
-                                                       'pubchem_cid',
-                                                       'sensitivity_uM']], how='inner',
-                                            on=['pubchem_cid', 'cellosaurus_accession'])
+                                      'pubchem_cid': test_data['pubchem_cid'],
+                                      'cellosaurus_accession': test_data['cellosaurus_accession'],
+                                      'sensitivity_uM': test_data['sensitivity_uM'],
+                                      'scaffolds': test_data['scaffolds']})
+        train_data = pd.read_csv(self.data_path / 'train.csv', index_col=0)
+        val_data = pd.read_csv(self.data_path / 'valid.csv', index_col=0)
         if split == 'scaffold':
             prediction_df = prediction_df.loc[~prediction_df['scaffolds'].isin(train_data['scaffolds'])]
             prediction_df = prediction_df.loc[~prediction_df['scaffolds'].isin(val_data['scaffolds'])]
-        overlap = prediction_df.merge(train_data, how='inner', on=['pubchem_cid', 'cellosaurus_accession'])
-        prediction_df = prediction_df.loc[~prediction_df['pubchem_cid'].isin(overlap['pubchem_cid'])]
 
         ap = average_precision_score(prediction_df['sensitivity_uM'], prediction_df['predictions'])
         roc_auc = roc_auc_score(prediction_df['sensitivity_uM'], prediction_df['predictions'])
         return ap, roc_auc
+
+    def overlaps(self):
+        overlap = []
+        cells = []
+        for key in dict1:
+            list1 = dict1[key]
+            list2 = dict2[key]
+            overlap.append(len([value for value in list1 if value in list2]))
+            cells.append(key)
+        return cells, overlap
+
+    def disease_dicts(self):
+        def disease_overlap(sample_info, dict1):
+            new_dict = dict1
+            sample_info = sample_info.loc[sample_info['RRID'].isin(list(new_dict.keys()))]
+            primary_disease_list = sample_info['Subtype'].unique()
+            disease_list = []
+            interactions_list = []
+            overlap = []
+            for disease in primary_disease_list:
+                disease_specific_ccl = sample_info.loc[sample_info['Subtype'] == disease]['RRID'].unique()
+                num_cells = len(disease_specific_ccl)
+                print(disease)
+                print(num_cells)
+                disease_interactions = []
+                for ccl in disease_specific_ccl:
+                    new_dict[ccl] = new_dict[ccl][0:10]
+                    disease_interactions.append(new_dict[ccl])
+
+                disease_interactions = [item for sublist in disease_interactions for item in sublist]
+                n_interactions = [0] * len(disease_interactions)
+                interactions_dict = dict(zip(disease_interactions, n_interactions))
+
+                # calculate num interactions
+                for ccl in disease_specific_ccl:
+                    interactions = new_dict[ccl]
+                    for i in interactions:
+                        if i in interactions_dict.keys():
+                            interactions_dict[i] += 1
+
+                """
+                #calculate % interactions
+                for ccl in disease_specific_ccl:
+                    interactions = new_dict[ccl]
+                    for i in interactions:
+                        if i in interactions_dict.keys():
+                            n = interactions_dict[i]
+                            interactions_dict[i] = (n / num_cells) * 100 # calculate percentage
+                """
+
+                interactions_list.append(interactions_dict)
+                disease_list.append(disease)
+
+            return dict(zip(disease_list, interactions_list))
+
