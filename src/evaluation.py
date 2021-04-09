@@ -165,6 +165,7 @@ class Evaluation:
             id_blind_cells.append(i)
             ap_blind_cells.append(ap)
             auc_blind_cells.append(auc)
+        print('Finished evaluating blind cells setting')
 
         # calculate blind cells
         blind_drugs = pd.read_csv(blind_drugs, index_col=0)
@@ -175,6 +176,7 @@ class Evaluation:
             id_blind_drugs.append(i)
             ap_blind_drugs.append(ap)
             auc_blind_drugs.append(auc)
+        print('Finished evaluating blind drugs setting')
 
         double_blind = pd.read_csv(double_blind, index_col=0)
         double_blind_cell_ids = double_blind['cellosaurus_accession'].unique()
@@ -184,6 +186,7 @@ class Evaluation:
             id_double_blind.append(i)
             ap_double_blind.append(ap)
             auc_double_blind.append(auc)
+        print('Finished evaluating double blind setting')
 
         results_dict = {'blind_cells': [id_blind_cells, ap_blind_cells, auc_blind_cells],
                         'blind_drugs': [id_blind_drugs, ap_blind_drugs, auc_blind_drugs],
@@ -200,7 +203,7 @@ class Evaluation:
             dataset = PairDataset(data)
             test_data = data
 
-        test = DataLoader(dataset, 32, shuffle=False, num_workers=8, pin_memory=True, collate_fn=collate)
+        test = DataLoader(dataset, 18, shuffle=False, num_workers=8, pin_memory=False, collate_fn=collate)
         predictions = []
 
         for batch in test:
@@ -218,8 +221,8 @@ class Evaluation:
                 ppi_edge_index,
                 ppi_batch,
             )
-            y_hat = y_hat.squeeze(-1).detach().cpu().numpy()
-            predictions.append(y_hat.cpu().detach().numpy().flatten().tolist())
+            y_hat = y_hat.squeeze(-1).detach().cpu().numpy().flatten().tolist()
+            predictions.append(y_hat)
 
         predictions = [item for sublist in predictions for item in sublist]
         prediction_df = pd.DataFrame({'predictions': predictions,
@@ -228,13 +231,18 @@ class Evaluation:
                                       'sensitivity_uM': test_data['sensitivity_uM'],
                                       'scaffolds': test_data['scaffolds']})
         train_data = pd.read_csv(self.data_path / 'train.csv', index_col=0)
-        val_data = pd.read_csv(self.data_path / 'valid.csv', index_col=0)
+        val_data = pd.read_csv(self.data_path / 'val.csv', index_col=0)
         if split == 'scaffold':
             prediction_df = prediction_df.loc[~prediction_df['scaffolds'].isin(train_data['scaffolds'])]
             prediction_df = prediction_df.loc[~prediction_df['scaffolds'].isin(val_data['scaffolds'])]
 
-        ap = average_precision_score(prediction_df['sensitivity_uM'], prediction_df['predictions'])
-        roc_auc = roc_auc_score(prediction_df['sensitivity_uM'], prediction_df['predictions'])
+        try:
+            ap = average_precision_score(prediction_df['sensitivity_uM'], prediction_df['predictions'])
+            roc_auc = roc_auc_score(prediction_df['sensitivity_uM'], prediction_df['predictions'])
+        except:
+            ap = 0
+            roc_auc = 0
+        print('Calculated AP and AU-ROC for a single iteration, AP: {}, AUC: {}'.format(ap, roc_auc))
         return ap, roc_auc
 
     def overlaps(self):
