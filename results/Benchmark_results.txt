@@ -1,2 +1,6 @@
 {'gdsc_benchmark_random_42': [{'Test MSE': 0.997, 'Test RMSE': 0.999, 'Test R2': 0.869}, {'version': '1617781963'}]}
 
+{'gdsc_benchmark_random_0': [{'Test MSE': 1.024, 'Test RMSE': 1.012, 'Test R2': 0.865}, {'version': '1617872829'}]}
+
+{'gdsc_benchmark_random_87': [{'Test MSE': 1.033, 'Test RMSE': 1.016, 'Test R2': 0.864}, {'version': '1617879611'}]}
+

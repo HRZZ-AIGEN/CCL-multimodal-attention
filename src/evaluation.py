@@ -138,7 +138,7 @@ class Evaluation:
 
         return attention, cellosaurus_accession
 
-    def eval_test_sets(self, split='random'):
+    def eval_test_sets(self, split='random', how='average'):
         id_blind_cells = []
         ap_blind_cells = []
         auc_blind_cells = []
@@ -156,37 +156,57 @@ class Evaluation:
         blind_drugs = [test for test in test_sets if str(test).endswith('blind_drugs.csv')][0]
         double_blind = [test for test in test_sets if str(test).endswith('double_blind.csv')][0]
 
-        # calculate blind drugs
-        blind_cells = pd.read_csv(blind_cells, index_col=0)
-        cell_ids = blind_cells['cellosaurus_accession'].unique()
-        for i in cell_ids:
-            df = blind_cells.loc[blind_cells['cellosaurus_accession'] == i]
-            ap, auc = self.calculate_metrics(df, split)
-            id_blind_cells.append(i)
+        if how == 'average':
+            blind_cells = pd.read_csv(blind_cells, index_col=0)
+            ap, auc = self.calculate_metrics(blind_cells, split)
             ap_blind_cells.append(ap)
             auc_blind_cells.append(auc)
-        print('Finished evaluating blind cells setting')
+            id_blind_cells.append('average')
 
-        # calculate blind cells
-        blind_drugs = pd.read_csv(blind_drugs, index_col=0)
-        blind_drugs_ids = blind_drugs['pubchem_cid'].unique()
-        for i in blind_drugs_ids:
-            df = blind_drugs.loc[blind_drugs['pubchem_cid'] == i]
-            ap, auc = self.calculate_metrics(df, split)
-            id_blind_drugs.append(i)
+            blind_drugs = pd.read_csv(blind_drugs, index_col=0)
+            ap, auc = self.calculate_metrics(blind_drugs, split)
+            id_blind_drugs.append('average')
             ap_blind_drugs.append(ap)
             auc_blind_drugs.append(auc)
-        print('Finished evaluating blind drugs setting')
 
-        double_blind = pd.read_csv(double_blind, index_col=0)
-        double_blind_cell_ids = double_blind['cellosaurus_accession'].unique()
-        for i in double_blind_cell_ids:
-            df = double_blind.loc[double_blind['cellosaurus_accession'] == i]
-            ap, auc = (self.calculate_metrics(df, split))
-            id_double_blind.append(i)
-            ap_double_blind.append(ap)
-            auc_double_blind.append(auc)
-        print('Finished evaluating double blind setting')
+            double_blind = pd.read_csv(double_blind, index_col=0)
+            ap, auc = self.calculate_metrics(double_blind, split)
+            id_blind_drugs.append('average')
+            ap_blind_drugs.append(ap)
+            auc_blind_drugs.append(auc)
+
+        else:
+            # calculate blind drugs
+            blind_cells = pd.read_csv(blind_cells, index_col=0)
+            cell_ids = blind_cells['cellosaurus_accession'].unique()
+            for i in cell_ids:
+                df = blind_cells.loc[blind_cells['cellosaurus_accession'] == i]
+                ap, auc = self.calculate_metrics(df, split)
+                id_blind_cells.append(i)
+                ap_blind_cells.append(ap)
+                auc_blind_cells.append(auc)
+            print('Finished evaluating blind cells setting')
+
+            # calculate blind cells
+            blind_drugs = pd.read_csv(blind_drugs, index_col=0)
+            blind_drugs_ids = blind_drugs['pubchem_cid'].unique()
+            for i in blind_drugs_ids:
+                df = blind_drugs.loc[blind_drugs['pubchem_cid'] == i]
+                ap, auc = self.calculate_metrics(df, split)
+                id_blind_drugs.append(i)
+                ap_blind_drugs.append(ap)
+                auc_blind_drugs.append(auc)
+            print('Finished evaluating blind drugs setting')
+
+            double_blind = pd.read_csv(double_blind, index_col=0)
+            double_blind_cell_ids = double_blind['cellosaurus_accession'].unique()
+            for i in double_blind_cell_ids:
+                df = double_blind.loc[double_blind['cellosaurus_accession'] == i]
+                ap, auc = (self.calculate_metrics(df, split))
+                id_double_blind.append(i)
+                ap_double_blind.append(ap)
+                auc_double_blind.append(auc)
+            print('Finished evaluating double blind setting')
 
         results_dict = {'blind_cells': [id_blind_cells, ap_blind_cells, auc_blind_cells],
                         'blind_drugs': [id_blind_drugs, ap_blind_drugs, auc_blind_drugs],
