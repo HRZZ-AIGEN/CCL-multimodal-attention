@@ -275,6 +275,19 @@ class Evaluation:
             cells.append(key)
         return cells, overlap
 
+    def overlap_3(dict1, dict2, dict3):
+        overlap = []
+        cells = []
+        for key in dict1:
+            list1 = dict1[key]
+            list2 = dict2[key]
+            list3 = dict3[key]
+            ol1 = [value for value in list1 if value in list2]
+            overlap.append(len([value for value in ol1 if value in list3]))
+            cells.append(key)
+        return cells, overlap
+
+
     def disease_dicts(self):
         def disease_overlap(sample_info, dict1):
             new_dict = dict1
