@@ -13,3 +13,7 @@ Classification results
 
 {'CTRP_random_42_ppi_depth_2': [{'Test AP': 0.901, 'Test AUC-ROC': 0.974}, {'version': '1617709210'}]}
 
+{'GDSC_drug_dissimilarity_42_ppi_depth_1': [{'Test AP': 0.892, 'Test AUC-ROC': 0.947}, {'version': '1618315146'}]}
+
+{'CTRP_drug_dissimilarity_32_ppi_depth_1': [{'Test AP': 0.853, 'Test AUC-ROC': 0.964}, {'version': '1618315080'}]}
+
