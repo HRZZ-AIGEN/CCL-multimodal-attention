@@ -294,7 +294,7 @@ def train_test_split(dataset='GDSC', split='random'):
             other = data.loc[data['dataset_name'] != dataset]
             data = data.loc[data['dataset_name'] == dataset]
 
-            overlap_cells = data.merge(other, how='inner', on='pubchem_cid')
+            overlap_cells = data.merge(other, how='inner', on='cellosaurus_accession')
             overlap_cells = overlap_cells['cellosaurus_accession'].unique()
 
             # find overlapping cell lines

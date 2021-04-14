@@ -306,16 +306,6 @@ class Evaluation:
                         if i in interactions_dict.keys():
                             interactions_dict[i] += 1
 
-                """
-                #calculate % interactions
-                for ccl in disease_specific_ccl:
-                    interactions = new_dict[ccl]
-                    for i in interactions:
-                        if i in interactions_dict.keys():
-                            n = interactions_dict[i]
-                            interactions_dict[i] = (n / num_cells) * 100 # calculate percentage
-                """
-
                 interactions_list.append(interactions_dict)
                 disease_list.append(disease)
 
