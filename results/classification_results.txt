@@ -25,3 +25,7 @@ Classification results
 
 {'GDSC_cell_dissimilarity_42_ppi_depth_1': [{'Test AP': 0.875, 'Test AUC-ROC': 0.931}, {'version': '1618394212'}]}
 
+{'CTRP_cell_dissimilarity_42_ppi_depth_1': [{'Test AP': 0.852, 'Test AUC-ROC': 0.958}, {'version': '1618401702'}]}
+
+{'CTRP_cell_similarity_42_ppi_depth_1': [{'Test AP': 0.876, 'Test AUC-ROC': 0.968}, {'version': '1618401696'}]}
+
