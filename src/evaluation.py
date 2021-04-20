@@ -277,41 +277,6 @@ class Evaluation:
         print('Calculated AP and AU-ROC for a single iteration, AP: {}, AUC: {}'.format(ap, roc_auc))
         return ap, roc_auc
 
-    def disease_dicts(self):
-        def disease_overlap(sample_info, dict1):
-            new_dict = dict1
-            sample_info = sample_info.loc[sample_info['RRID'].isin(list(new_dict.keys()))]
-            primary_disease_list = sample_info['Subtype'].unique()
-            disease_list = []
-            interactions_list = []
-            overlap = []
-            for disease in primary_disease_list:
-                disease_specific_ccl = sample_info.loc[sample_info['Subtype'] == disease]['RRID'].unique()
-                num_cells = len(disease_specific_ccl)
-                print(disease)
-                print(num_cells)
-                disease_interactions = []
-                for ccl in disease_specific_ccl:
-                    new_dict[ccl] = new_dict[ccl][0:10]
-                    disease_interactions.append(new_dict[ccl])
-
-                disease_interactions = [item for sublist in disease_interactions for item in sublist]
-                n_interactions = [0] * len(disease_interactions)
-                interactions_dict = dict(zip(disease_interactions, n_interactions))
-
-                # calculate num interactions
-                for ccl in disease_specific_ccl:
-                    interactions = new_dict[ccl]
-                    for i in interactions:
-                        if i in interactions_dict.keys():
-                            interactions_dict[i] += 1
-
-                interactions_list.append(interactions_dict)
-                disease_list.append(disease)
-
-            return dict(zip(disease_list, interactions_list))
-
-
 def overlaps(dict1, dict2):
     overlap = []
     cells = []
@@ -333,3 +298,34 @@ def overlap_3(dict1, dict2, dict3):
         overlap.append(len([value for value in ol1 if value in list3]))
         cells.append(key)
     return overlap
+
+def disease_dicts(sample_info, dict1, disease_class):
+    new_dict = dict1
+    sample_info = sample_info.loc[sample_info['RRID'].isin(list(new_dict.keys()))]
+    primary_disease_list = sample_info[disease_class].unique()
+    disease_list = []
+    interactions_list = []
+    overlap = []
+    for disease in primary_disease_list:
+        disease_specific_ccl = sample_info.loc[sample_info[disease_class] == disease]['RRID'].unique()
+        num_cells = len(disease_specific_ccl)
+        disease_interactions = []
+        for ccl in disease_specific_ccl:
+            new_dict[ccl] = new_dict[ccl]
+            disease_interactions.append(new_dict[ccl])
+
+        disease_interactions = [item for sublist in disease_interactions for item in sublist]
+        n_interactions = [0] * len(disease_interactions)
+        interactions_dict = dict(zip(disease_interactions, n_interactions))
+
+        # calculate num interactions
+        for ccl in disease_specific_ccl:
+            interactions = new_dict[ccl]
+            for i in interactions:
+                if i in interactions_dict.keys():
+                    interactions_dict[i] += 1
+
+        interactions_list.append(interactions_dict)
+        disease_list.append(disease)
+
+    return dict(zip(disease_list, interactions_list))
