@@ -28,12 +28,19 @@ def create_gdsc_split(split='random'):
             zip_ref.extractall(data_dir)
 
     print("Creating train-val-test splits")
-    if split == 'random':
-        save_dir = (root / 'data/processed/gdsc_benchmark')
+    if split == 'random' or split == 'paccmann':
+        if split == 'random':
+            save_dir = (root / 'data/processed/gdsc_benchmark')
+        if split == 'paccmann':
+            save_dir = (root / 'data/processed/paccmann')
         if not save_dir.exists():
             save_dir.mkdir()
             ppi_graphs = PPIGraphs(root / 'data/processed')  # load and/or create PPI graphs
             gdsc = pd.read_csv(root / 'data/raw/GDSC_data/PANCANCER_IC.csv')
+
+            if split == 'paccmann':
+                gdsc['IC50'] = (gdsc['IC50']-gdsc['IC50'].min())/(gdsc['IC50'].max()-gdsc['IC50'].min())
+
             smiles = pd.read_csv(root / 'data/raw/GDSC_data/drug_smiles.csv')
             sample_info = pd.read_csv(root / 'data/processed/sample_info.csv')[['COSMICID', 'RRID']]
 

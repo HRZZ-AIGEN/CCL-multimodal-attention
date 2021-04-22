@@ -173,8 +173,8 @@ class Evaluation:
 
                 double_blind = pd.read_csv(double_blind, index_col=0)
                 ap, auc = self.calculate_metrics(double_blind, split)
-                id_blind_drugs.append('average')
-                ap_blind_drugs.append(ap)
+                id_double_blind.append('average')
+                ap_double_blind.append(ap)
                 auc_blind_drugs.append(auc)
 
             else:
@@ -328,4 +328,35 @@ def disease_dicts(sample_info, dict1, disease_class):
         interactions_list.append(interactions_dict)
         disease_list.append(disease)
 
-    return dict(zip(disease_list, interactions_list))
+        return dict(zip(disease_list, interactions_list))
+
+def disease_subtype_dict(sample_info, dict1):
+    new_dict = dict1
+    sample_info = sample_info.loc[sample_info['RRID'].isin(list(new_dict.keys()))]
+    disease_subtype_list = []
+    interactions_list = []
+
+    for disease in sample_info['primary_disease'].unique():
+        subtypes = sample_info.loc[sample_info['primary_disease'] == disease]['Subtype'].unique()
+        for subtype in subtypes:
+            cells = sample_info.loc[(sample_info['primary_disease'] == disease) &
+                                    (sample_info['Subtype'] == subtype)]['RRID'].unique()
+            num_cells = len(cells)
+            disease_interactions = []
+            for cell in cells:
+                disease_interactions.append(new_dict[cell])
+
+            disease_interactions = [item for sublist in disease_interactions for item in sublist]
+            n_interactions = [0] * len(disease_interactions)
+            interactions_dict = dict(zip(disease_interactions, n_interactions))
+
+            for cell in cells:
+                interactions = new_dict[cell]
+                for i in interactions:
+                    if i in interactions_dict.keys():
+                        interactions_dict[i] += 1
+
+            interactions_list.append(interactions_dict)
+            disease_subtype_list.append(str('{}_{}'.format(disease, subtype)))
+
+    return dict(zip(disease_subtype_list, interactions_list))
