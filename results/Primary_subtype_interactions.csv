@@ -1,0 +1,462 @@
+primary_disease_subtype,interaction,percent_overlap_GDSC,percent_overlap_CTRP
+"Ovarian Cancer_Adenocarcinoma, mucinous",PPP2R5A-CSNK1A1,33.33,33.33
+"Ovarian Cancer_Adenocarcinoma, mucinous",CDK1-PIN1,33.33,33.33
+"Ovarian Cancer_Carcinoma, brenner",INSIG1-HMGCR,100.0,100.0
+"Ovarian Cancer_Carcinoma, brenner",CHEK1-MSH6,100.0,100.0
+"Ovarian Cancer_Carcinoma, brenner",UBQLN2-RNH1,100.0,100.0
+"Ovarian Cancer_Carcinoma, brenner",MBTPS1-HDAC2,100.0,100.0
+"Ovarian Cancer_Adenocarcinoma, clear cell",CCNE2-PCNA,33.33,22.22
+"Ovarian Cancer_Adenocarcinoma, clear cell",RFX5-HDAC2,22.22,22.22
+"Ovarian Cancer_Adenocarcinoma, clear cell",HDAC2-NR3C1,22.22,44.44
+"Ovarian Cancer_Adenocarcinoma, clear cell",UBQLN2-EDEM1,11.11,11.11
+"Ovarian Cancer_Cystadenocarcinoma, high grade serous",UBQLN2-EDEM1,100.0,100.0
+"Ovarian Cancer_Cystadenocarcinoma, high grade serous",MBTPS1-HDAC2,100.0,100.0
+"Ovarian Cancer_Cystadenocarcinoma, high grade serous",INSIG1-HMGCR,100.0,100.0
+"Ovarian Cancer_Cystadenocarcinoma, high grade serous",UBQLN2-RNH1,100.0,100.0
+"Ovarian Cancer_Adenocarcinoma, mixed",PARP1-CEBPA,50.0,50.0
+"Ovarian Cancer_Adenocarcinoma, mixed",SCCPDH-SQSTM1,50.0,50.0
+"Ovarian Cancer_Adenocarcinoma, mixed",KAT6A-HSPA4,50.0,50.0
+"Ovarian Cancer_Adenocarcinoma, mixed",PARP1-CASP3,50.0,50.0
+"Ovarian Cancer_Cystadenocarcinoma, mucinous",HSPA8-HSPA4,50.0,50.0
+"Ovarian Cancer_Cystadenocarcinoma, mucinous",IGFBP3-PPARG,50.0,50.0
+"Ovarian Cancer_Cystadenocarcinoma, mucinous",RAE1-NUP88,50.0,50.0
+"Ovarian Cancer_Cystadenocarcinoma, mucinous",PTPN1-STAT3,50.0,50.0
+Ovarian Cancer_Carcinoma,DAG1-CLIC4,33.33,33.33
+Ovarian Cancer_Carcinoma,RPS6-NVL,33.33,33.33
+Ovarian Cancer_Carcinoma,FOS-ETS1,33.33,33.33
+Ovarian Cancer_Carcinoma,FOS-TLE1,33.33,33.33
+Ovarian Cancer_Carcinoma,FOS-XBP1,33.33,33.33
+Ovarian Cancer_Small Cell Carcinoma of the Ovary Hypercalcemic Type (SCCOHT),NFKBIA-IKBKE,50.0,50.0
+Ovarian Cancer_Small Cell Carcinoma of the Ovary Hypercalcemic Type (SCCOHT),HSD17B10-ATP1B1,50.0,50.0
+Ovarian Cancer_Small Cell Carcinoma of the Ovary Hypercalcemic Type (SCCOHT),GLI2-SOX2,50.0,50.0
+Ovarian Cancer_Small Cell Carcinoma of the Ovary Hypercalcemic Type (SCCOHT),IQGAP1-CD44,50.0,50.0
+Ovarian Cancer_Small Cell Carcinoma of the Ovary Hypercalcemic Type (SCCOHT),NFKBIA-AKT1,50.0,50.0
+Ovarian Cancer_Small Cell Carcinoma of the Ovary Hypercalcemic Type (SCCOHT),NFKBIA-HSPB1,50.0,50.0
+Ovarian Cancer_Small Cell Carcinoma of the Ovary Hypercalcemic Type (SCCOHT),PIP4K2B-SKP1,50.0,50.0
+Ovarian Cancer_Adenocarcinoma,GLI2-SOX2,33.33,33.33
+Ovarian Cancer_Adenocarcinoma,CD40-HSPA8,33.33,33.33
+Ovarian Cancer_Adenocarcinoma,NIT1-SIRT3,33.33,33.33
+Ovarian Cancer_Cystadenocarcinoma,ACAT2-SPR,25.0,50.0
+Ovarian Cancer_Cystadenocarcinoma,C2CD2L-PRKCQ,25.0,25.0
+"Leukemia_Acute Myelogenous Leukemia (AML), M3 (Promyelocytic)",ILK-AKAP8,33.33,33.33
+"Leukemia_Acute Myelogenous Leukemia (AML), M3 (Promyelocytic)",ILK-TUBB6,33.33,33.33
+"Leukemia_Acute Myelogenous Leukemia (AML), M3 (Promyelocytic)",GTF2A2-POLR2K,33.33,33.33
+"Leukemia_Acute Myelogenous Leukemia (AML), M6 (Erythroleukemia)",PTK2B-SYK,80.0,60.0
+"Leukemia_Acute Myelogenous Leukemia (AML), M6 (Erythroleukemia)",IKBKB-NFKB2,80.0,60.0
+"Leukemia_Acute Myelogenous Leukemia (AML), M6 (Erythroleukemia)",CDK4-CDKN1A,60.0,60.0
+"Leukemia_Acute Myelogenous Leukemia (AML), M6 (Erythroleukemia)",CDK4-BCL2,60.0,40.0
+"Leukemia_Acute Myelogenous Leukemia (AML), M6 (Erythroleukemia)",JUN-NOLC1,40.0,40.0
+"Leukemia_Acute Myelogenous Leukemia (AML), M5 (Eosinophilic/Monocytic)",SHC1-IL4R,62.5,87.5
+"Leukemia_Acute Myelogenous Leukemia (AML), M5 (Eosinophilic/Monocytic)",RHOA-S100A4,62.5,62.5
+"Leukemia_Acute Myelogenous Leukemia (AML), M5 (Eosinophilic/Monocytic)",ILK-AKAP8,37.5,50.0
+"Leukemia_Acute Myelogenous Leukemia (AML), M5 (Eosinophilic/Monocytic)",RAE1-MTHFD2,37.5,37.5
+"Leukemia_Acute Myelogenous Leukemia (AML), M5 (Eosinophilic/Monocytic)",ILK-TUBB6,37.5,50.0
+"Leukemia_Acute Myelogenous Leukemia (AML), M5 (Eosinophilic/Monocytic)",UGDH-HSPB1,25.0,37.5
+"Leukemia_Acute Myelogenous Leukemia (AML), M5 (Eosinophilic/Monocytic)",CHEK2-RAD9A,25.0,37.5
+"Leukemia_Acute Lymphoblastic Leukemia (ALL), B-cell",UGDH-HSPB1,57.69,46.15
+"Leukemia_Acute Lymphoblastic Leukemia (ALL), B-cell",CHEK2-RAD9A,38.46,26.92
+"Leukemia_Acute Lymphoblastic Leukemia (ALL), B-cell",CHEK2-GNAS,23.08,19.23
+"Leukemia_Acute Lymphoblastic Leukemia (ALL), B-cell",SHC1-IL4R,23.08,23.08
+Leukemia_Acute Myelogenous Leukemia (AML),RHOA-S100A4,29.17,25.0
+Leukemia_Acute Myelogenous Leukemia (AML),HSPA8-CD40,29.17,16.67
+Leukemia_Acute Myelogenous Leukemia (AML),JUN-NOLC1,20.83,20.83
+Leukemia_Acute Myelogenous Leukemia (AML),SYNE2-S100A4,20.83,20.83
+Leukemia_Acute Myelogenous Leukemia (AML),CXCR4-GNAI1,20.83,20.83
+Leukemia_Acute Myelogenous Leukemia (AML),SHC1-IL4R,16.67,16.67
+Leukemia_Acute Myelogenous Leukemia (AML),CHEK2-RAD9A,16.67,16.67
+Leukemia_Acute Myelogenous Leukemia (AML),UGDH-HSPB1,16.67,20.83
+"Leukemia_Chronic Myelogenous Leukemia (CML), blast crisis",SYNE2-S100A4,33.33,25.0
+"Leukemia_Chronic Myelogenous Leukemia (CML), blast crisis",PTK2B-SYK,25.0,33.33
+"Leukemia_Chronic Myelogenous Leukemia (CML), blast crisis",IKBKB-NFKB2,25.0,25.0
+"Leukemia_Acute Lymphoblastic Leukemia (ALL), T-cell",ABL1-PXN,43.48,43.48
+"Leukemia_Acute Lymphoblastic Leukemia (ALL), T-cell",CSNK1E-HSPA8,34.78,43.48
+"Leukemia_Acute Lymphoblastic Leukemia (ALL), T-cell",PTK2B-SYK,17.39,17.39
+"Leukemia_Acute Lymphoblastic Leukemia (ALL), T-cell",CDK4-CDKN1A,17.39,13.04
+"Leukemia_Acute Myelogenous Leukemia (AML), M4 (Myelomonocytic)",SHC1-IL4R,40.0,40.0
+"Leukemia_Acute Myelogenous Leukemia (AML), M4 (Myelomonocytic)",RHOA-S100A4,40.0,40.0
+"Leukemia_Acute Myelogenous Leukemia (AML), M4 (Myelomonocytic)",RB1-TFDP1,40.0,40.0
+"Leukemia_Acute Myelogenous Leukemia (AML), M4 (Myelomonocytic)",UGDH-HSPB1,40.0,40.0
+"Leukemia_Acute Myelogenous Leukemia (AML), M2 (Myeloblastic)",UGDH-HSPB1,66.67,66.67
+"Leukemia_Acute Myelogenous Leukemia (AML), M2 (Myeloblastic)",CHEK2-RAD9A,66.67,33.33
+"Leukemia_Acute Myelogenous Leukemia (AML), M2 (Myeloblastic)",ILK-AKAP8,66.67,33.33
+"Leukemia_Acute Myelogenous Leukemia (AML), M2 (Myeloblastic)",PAX8-ID2,33.33,33.33
+"Leukemia_Acute Myelogenous Leukemia (AML), M2 (Myeloblastic)",PRKCQ-FYN,33.33,33.33
+"Leukemia_Acute Myelogenous Leukemia (AML), M2 (Myeloblastic)",LIG1-PCNA,33.33,33.33
+"Leukemia_Acute Myelogenous Leukemia (AML), M2 (Myeloblastic)",PAX8-RB1,33.33,33.33
+"Leukemia_Chronic Lymphoblastic Leukemia (CLL), B-cell",UGDH-HSPB1,100.0,100.0
+"Leukemia_Chronic Lymphoblastic Leukemia (CLL), B-cell",CHEK2-RAD9A,100.0,66.67
+"Leukemia_Chronic Lymphoblastic Leukemia (CLL), B-cell",CHEK2-CHEK1,100.0,66.67
+"Leukemia_Chronic Lymphoblastic Leukemia (CLL), B-cell",SHC1-IL4R,100.0,66.67
+"Leukemia_Chronic Lymphoblastic Leukemia (CLL), B-cell",CHEK2-GNAS,66.67,66.67
+"Leukemia_Chronic Lymphoblastic Leukemia (CLL), B-cell",HSPA8-RPA1,33.33,33.33
+"Leukemia_Acute Myelogenous Leukemia (AML), M7 (Megakaryoblastic)",IKBKB-NFKB2,100.0,100.0
+"Leukemia_Acute Myelogenous Leukemia (AML), M7 (Megakaryoblastic)",CDK4-BCL2,100.0,100.0
+"Leukemia_Acute Myelogenous Leukemia (AML), M7 (Megakaryoblastic)",POLR1C-DNAJB6,100.0,50.0
+"Leukemia_Acute Myelogenous Leukemia (AML), M7 (Megakaryoblastic)",CDK4-CCND3,100.0,50.0
+"Leukemia_Acute Myelogenous Leukemia (AML), M7 (Megakaryoblastic)",PTK2B-SYK,100.0,100.0
+"Leukemia_Acute Myelogenous Leukemia (AML), M7 (Megakaryoblastic)",HSPA8-CD40,100.0,50.0
+"Leukemia_Acute Myelogenous Leukemia (AML), M7 (Megakaryoblastic)",CDK4-CDKN1A,50.0,100.0
+"Leukemia_Acute Myelogenous Leukemia (AML), M7 (Megakaryoblastic)",CDKN1A-MYC,50.0,50.0
+"Leukemia_Acute Myelogenous Leukemia (AML), M7 (Megakaryoblastic)",CDK4-TP53,50.0,50.0
+"Leukemia_B-cell, unspecified",UGDH-HSPB1,100.0,100.0
+"Leukemia_B-cell, unspecified",CHEK2-RAD9A,100.0,100.0
+"Leukemia_B-cell, unspecified",CHEK2-GNAS,100.0,100.0
+"Leukemia_B-cell, unspecified",SHC1-IL4R,50.0,50.0
+"Leukemia_B-cell, unspecified",CHEK2-TP53BP1,50.0,100.0
+Colon/Colorectal Cancer_Adenocarcinoma,GLI2-USP7,14.71,17.65
+Colon/Colorectal Cancer_Adenocarcinoma,RAE1-MTHFD2,13.24,8.82
+Colon/Colorectal Cancer_Adenocarcinoma,GLI2-SMAD3,11.76,10.29
+Skin Cancer_Melanoma,NFKBIA-AKT1,18.29,13.41
+Skin Cancer_Melanoma,CHEK2-RAD9A,17.07,12.2
+Skin Cancer_Melanoma,CHEK2-GNAS,14.63,12.2
+Skin Cancer_Melanoma,CHEK2-CHEK1,13.41,10.98
+Skin Cancer_Melanoma,UGDH-HSPB1,13.41,18.29
+"Skin Cancer_Melanoma, amelanotic",CHEK2-GNAS,60.0,60.0
+"Skin Cancer_Melanoma, amelanotic",CHEK2-CHEK1,60.0,40.0
+"Skin Cancer_Melanoma, amelanotic",UGDH-HSPB1,40.0,40.0
+"Skin Cancer_Melanoma, amelanotic",CHEK2-RAD9A,40.0,40.0
+Skin Cancer_Squamous Cell Carcinoma,INSIG1-HMGCR,40.0,40.0
+Skin Cancer_Merkel Cell Carcinoma,HSPA8-MYC,14.29,14.29
+Skin Cancer_Merkel Cell Carcinoma,PSMD2-PFKL,14.29,14.29
+Skin Cancer_Merkel Cell Carcinoma,BID-UBQLN2,14.29,28.57
+Skin Cancer_Merkel Cell Carcinoma,LYN-SNCA,14.29,14.29
+Bladder Cancer_Transitional Cell Carcinoma,INSIG1-HMGCR,25.0,16.67
+Bladder Cancer_Transitional Cell Carcinoma,UBQLN2-EDEM1,25.0,20.83
+Bladder Cancer_Transitional Cell Carcinoma,MBTPS1-HDAC2,16.67,16.67
+Bladder Cancer_Transitional Cell Carcinoma,MEF2C-VGLL4,12.5,8.33
+"Lung Cancer_Non-Small Cell Lung Cancer (NSCLC), Large Cell Carcinoma",CDK2-PSMD2,16.67,11.11
+"Lung Cancer_Non-Small Cell Lung Cancer (NSCLC), Large Cell Carcinoma",ERBB3-HSPA1A,16.67,16.67
+Lung Cancer_Mesothelioma,EED-TLE1,16.13,16.13
+Lung Cancer_Mesothelioma,BIRC5-RASA1,12.9,12.9
+Lung Cancer_Small Cell Lung Cancer (SCLC),AURKA-SKP1,14.1,16.67
+Lung Cancer_Small Cell Lung Cancer (SCLC),AURKA-PSRC1,11.54,14.1
+Lung Cancer_Small Cell Lung Cancer (SCLC),POLR1C-CDC42,10.26,15.38
+"Lung Cancer_Non-Small Cell Lung Cancer (NSCLC), unspecified",HSPA8-CD40,14.29,14.29
+"Lung Cancer_Non-Small Cell Lung Cancer (NSCLC), Squamous Cell Carcinoma",MAPKAPK3-BECN1,12.5,6.25
+"Lung Cancer_Non-Small Cell Lung Cancer (NSCLC), Adenosquamous Carcinoma",ABL1-NCOA3,20.0,20.0
+"Lung Cancer_Non-Small Cell Lung Cancer (NSCLC), Adenosquamous Carcinoma",CNOT4-MYC,20.0,20.0
+"Lung Cancer_Non-Small Cell Lung Cancer (NSCLC), Mucoepidermoid Carcinoma",CEBPA-CDKN1A,100.0,100.0
+"Lung Cancer_Non-Small Cell Lung Cancer (NSCLC), Mucoepidermoid Carcinoma",SMARCA4-FAH,100.0,100.0
+"Lung Cancer_Non-Small Cell Lung Cancer (NSCLC), Mucoepidermoid Carcinoma",ETV1-RPS6KA1,100.0,100.0
+Kidney Cancer_Renal Cell Carcinoma,UBQLN2-EDEM1,24.24,27.27
+Kidney Cancer_Renal Cell Carcinoma,INSIG1-HMGCR,21.21,30.3
+Kidney Cancer_Renal Cell Carcinoma,MBTPS1-HDAC2,18.18,27.27
+Kidney Cancer_Renal Cell Carcinoma,HDAC2-NR3C1,9.09,21.21
+Kidney Cancer_Renal Cell Carcinoma,PNKP-NOLC1,9.09,12.12
+"Kidney Cancer_Renal Carcinoma, clear cell",UBQLN2-EDEM1,31.25,31.25
+"Kidney Cancer_Renal Carcinoma, clear cell",INSIG1-HMGCR,18.75,25.0
+"Kidney Cancer_Renal Carcinoma, clear cell",HDAC2-NR3C1,6.25,6.25
+Kidney Cancer_Renal Leiomyoblastoma,HSPA8-CD40,100.0,100.0
+Kidney Cancer_Renal Leiomyoblastoma,INSIG1-HMGCR,100.0,100.0
+Kidney Cancer_Renal Leiomyoblastoma,MBTPS1-HDAC2,100.0,100.0
+Kidney Cancer_Renal Leiomyoblastoma,FOS-ABL1,100.0,100.0
+"Kidney Cancer_Renal Carcinoma, transitional cell",EED-TLE1,100.0,100.0
+Breast Cancer_Breast Ductal Carcinoma,IFNAR1-CDK6,14.29,20.0
+Breast Cancer_Adenocarcinoma,IFNAR1-CDK1,66.67,66.67
+Breast Cancer_Adenocarcinoma,IFNAR1-CDK6,33.33,66.67
+"Pancreatic Cancer_Ductal Adenocarcinoma, exocrine",HSPA8-CD40,31.37,25.49
+"Pancreatic Cancer_Ductal Adenocarcinoma, exocrine",CCDC85B-ZFP36,19.61,9.8
+Myeloma_Multiple Myeloma,SHC1-IL4R,46.67,53.33
+Myeloma_Multiple Myeloma,UGDH-HSPB1,46.67,43.33
+Myeloma_Multiple Myeloma,ABL1-RASA1,36.67,13.33
+Myeloma_Multiple Myeloma,CHEK2-RAD9A,33.33,20.0
+Myeloma_Multiple Myeloma,CHEK2-GNAS,26.67,26.67
+Myeloma_Multiple Myeloma,CHEK2-CHEK1,26.67,26.67
+Myeloma_Multiple Myeloma,CASP7-NUCB2,20.0,26.67
+Myeloma_Multiple Myeloma,CDK4-CDKN1A,13.33,13.33
+"Myeloma_Multiple Myeloma, plasmacytoma",SHC1-IL4R,50.0,50.0
+"Myeloma_Multiple Myeloma, plasmacytoma",UGDH-HSPB1,50.0,50.0
+"Myeloma_Multiple Myeloma, plasmacytoma",STMN1-HSPB1,25.0,25.0
+Brain Cancer_Meningioma,RB1-FOXO3,33.33,33.33
+Brain Cancer_Meningioma,PIK3C2B-SHC1,33.33,33.33
+Brain Cancer_Meningioma,MAPKAPK3-BECN1,33.33,33.33
+Brain Cancer_Glioblastoma,EED-TLE1,25.0,23.21
+Brain Cancer_Glioblastoma,ACAT2-SPR,19.64,21.43
+Brain Cancer_Glioblastoma,IL1B-FYN,17.86,23.21
+Brain Cancer_Glioblastoma,IL1B-EGR1,14.29,19.64
+Brain Cancer_Glioblastoma,EED-HDAC2,10.71,12.5
+Brain Cancer_Astrocytoma,EED-TLE1,43.75,31.25
+Brain Cancer_Astrocytoma,ACAT2-SPR,12.5,12.5
+Brain Cancer_Medulloblastoma,EED-TLE1,18.18,18.18
+Brain Cancer_Oligodendroglioma,EED-TLE1,33.33,33.33
+Brain Cancer_Oligodendroglioma,GLRX-CASP3,33.33,33.33
+Brain Cancer_Oligodendroglioma,ACAT2-SPR,33.33,33.33
+Brain Cancer_Oligodendroglioma,IL1B-FYN,33.33,33.33
+Brain Cancer_Oligodendroglioma,IL1B-EGR1,33.33,33.33
+Brain Cancer_Glioma,EED-TLE1,20.0,40.0
+Brain Cancer_Primitive Neuroectodermal Tumor (PNET),FBXL12-CAPN1,50.0,50.0
+Sarcoma_Thyroid Sarcoma,ACAT2-SPR,100.0,100.0
+Sarcoma_Thyroid Sarcoma,EED-TLE1,100.0,100.0
+Sarcoma_Thyroid Sarcoma,RPA2-TP53,100.0,100.0
+Sarcoma_Thyroid Sarcoma,IL1B-MYC,100.0,100.0
+Sarcoma_Rhabdomyosarcoma,FOS-EPHB2,33.33,33.33
+Sarcoma_Rhabdomyosarcoma,GLI2-SOX2,16.67,16.67
+Sarcoma_Rhabdomyosarcoma,MAP3K4-MAPK13,16.67,33.33
+Sarcoma_Fibrosarcoma,TBP-SPP1,33.33,33.33
+Sarcoma_Fibrosarcoma,RPS6-NVL,33.33,33.33
+Sarcoma_Fibrosarcoma,MAPKAPK3-BECN1,33.33,33.33
+"Sarcoma_Rhabdomyosarcoma, alveolar",CDC20-BUB1B,25.0,12.5
+"Sarcoma_Rhabdomyosarcoma, alveolar",PARP1-MYBL2,25.0,25.0
+"Sarcoma_Rhabdomyosarcoma, alveolar",CSNK1E-HSPA8,12.5,12.5
+Sarcoma_Leiomyosarcoma,MAPKAPK3-BECN1,33.33,33.33
+Sarcoma_Leiomyosarcoma,EED-TLE1,33.33,33.33
+Sarcoma_Leiomyosarcoma,IL1B-MYC,33.33,33.33
+"Sarcoma_Rhabdomyosarcoma, embryonal",PAICS-CDK2,25.0,25.0
+"Sarcoma_Rhabdomyosarcoma, embryonal",PAICS-DNM1L,25.0,25.0
+"Sarcoma_Rhabdomyosarcoma, embryonal",EGFR-STAT5B,25.0,25.0
+Sarcoma_Uterine Sarcoma,UBQLN2-EDEM1,100.0,100.0
+Sarcoma_Uterine Sarcoma,HSPA8-CD40,100.0,100.0
+Sarcoma_Uterine Sarcoma,TFAP2A-DNMT3A,100.0,100.0
+Sarcoma_Uterine Sarcoma,MYC-FOXO3,100.0,100.0
+Sarcoma_Uterine Sarcoma,EGFR-XPO7,100.0,100.0
+Sarcoma_Pleomorphic Sarcoma,GLRX-CASP3,100.0,100.0
+Sarcoma_Pleomorphic Sarcoma,PIK3C2B-CRK,100.0,100.0
+Sarcoma_Pleomorphic Sarcoma,GLRX-PTPN1,100.0,100.0
+Sarcoma_Pleomorphic Sarcoma,PIK3C2B-SHC1,100.0,100.0
+Sarcoma_Pleomorphic Sarcoma,GLRX-NIT1,100.0,100.0
+Sarcoma_Synovial,HSPA8-CD40,25.0,25.0
+Sarcoma_Synovial,ACAT2-SPR,25.0,25.0
+Sarcoma_Synovial,EED-TLE1,12.5,12.5
+Sarcoma_Epithelioid,HDAC2-NR3C1,100.0,100.0
+Sarcoma_Epithelioid,CCNE2-PCNA,100.0,100.0
+Sarcoma_Epithelioid,HDAC2-PPARD,100.0,100.0
+Sarcoma_Epithelioid,HDAC2-SPEN,100.0,100.0
+Sarcoma_Epithelioid,RFX5-HDAC2,100.0,100.0
+Sarcoma_Epithelioid,DAG1-PTK2,100.0,100.0
+Sarcoma_Epithelioid,CDC20-BUB1B,100.0,100.0
+Lymphoma_B-cell,CHEK2-RAD9A,50.0,33.33
+Lymphoma_B-cell,UGDH-HSPB1,50.0,50.0
+Lymphoma_B-cell,SHC1-IL4R,33.33,33.33
+Lymphoma_B-cell,CHEK2-CHEK1,16.67,33.33
+Lymphoma_B-cell,CHEK2-GNAS,16.67,33.33
+Lymphoma_B-cell,RHOA-S100A4,16.67,16.67
+"Lymphoma_T-cell, Non-Hodgkins, Anaplastic Large Cell (ALCL)",UGDH-HSPB1,60.0,40.0
+"Lymphoma_T-cell, Non-Hodgkins, Anaplastic Large Cell (ALCL)",CDK4-CDKN1A,60.0,40.0
+"Lymphoma_T-cell, Non-Hodgkins, Anaplastic Large Cell (ALCL)",CHEK2-CHEK1,40.0,40.0
+"Lymphoma_T-cell, Non-Hodgkins, Anaplastic Large Cell (ALCL)",CHEK2-RAD9A,40.0,60.0
+"Lymphoma_T-cell, Non-Hodgkins, Anaplastic Large Cell (ALCL)",PTK2B-SYK,40.0,60.0
+Lymphoma_Diffuse Large B-cell Lymphoma (DLBCL),UGDH-HSPB1,68.18,68.18
+Lymphoma_Diffuse Large B-cell Lymphoma (DLBCL),CDK4-CDKN1A,50.0,31.82
+Lymphoma_Diffuse Large B-cell Lymphoma (DLBCL),PTK2B-SYK,40.91,54.55
+Lymphoma_Diffuse Large B-cell Lymphoma (DLBCL),CHEK2-CHEK1,27.27,45.45
+Lymphoma_Diffuse Large B-cell Lymphoma (DLBCL),JUN-NOLC1,27.27,22.73
+Lymphoma_Diffuse Large B-cell Lymphoma (DLBCL),TRAP1-UFM1,22.73,31.82
+"Lymphoma_T-cell, Non-Hodgkins, Cutaneous",UGDH-HSPB1,100.0,66.67
+"Lymphoma_T-cell, Non-Hodgkins, Cutaneous",JUN-NOLC1,66.67,66.67
+"Lymphoma_T-cell, Non-Hodgkins, Cutaneous",SHC1-IL4R,66.67,100.0
+"Lymphoma_T-cell, Non-Hodgkins, Cutaneous",PTK2B-SYK,33.33,33.33
+"Lymphoma_B-cell, Non-Hodgkins, Mantle Cell",UGDH-HSPB1,80.0,80.0
+"Lymphoma_B-cell, Non-Hodgkins, Mantle Cell",GOLT1B-HTRA1,60.0,60.0
+"Lymphoma_B-cell, Non-Hodgkins, Mantle Cell",RHOA-S100A4,60.0,60.0
+"Lymphoma_B-cell, Non-Hodgkins, Mantle Cell",SHC1-IL4R,60.0,60.0
+"Lymphoma_B-cell, Non-Hodgkins, Mantle Cell",CHEK2-GNAS,60.0,60.0
+"Lymphoma_B-cell, Non-Hodgkins, Mantle Cell",CSNK1E-HSPA8,40.0,40.0
+"Lymphoma_B-cell, Hodgkins",UGDH-HSPB1,62.5,75.0
+"Lymphoma_B-cell, Hodgkins",CHEK2-RAD9A,50.0,50.0
+"Lymphoma_B-cell, Hodgkins",CHEK2-CHEK1,37.5,62.5
+"Lymphoma_B-cell, Hodgkins",CDK4-CDKN1A,37.5,25.0
+"Lymphoma_B-cell, Hodgkins",CHEK2-GNAS,25.0,37.5
+"Lymphoma_B-cell, Non-Hodgkins, Burkitts",UGDH-HSPB1,52.94,52.94
+"Lymphoma_B-cell, Non-Hodgkins, Burkitts",CDK4-CDKN1A,47.06,29.41
+"Lymphoma_B-cell, Non-Hodgkins, Burkitts",TRAP1-UFM1,35.29,35.29
+"Lymphoma_B-cell, Non-Hodgkins, Burkitts",PTK2B-SYK,35.29,52.94
+"Lymphoma_B-cell, Non-Hodgkins, Burkitts",SHC1-IL4R,23.53,17.65
+"Lymphoma_B-cell, Non-Hodgkins, Burkitts",CHEK2-GNAS,23.53,23.53
+Lymphoma_ATL,HSPA8-CD40,100.0,100.0
+Lymphoma_ATL,CSNK1E-HSPA8,100.0,100.0
+Lymphoma_ATL,ABL1-PXN,100.0,100.0
+Lymphoma_ATL,PARP1-DDB2,100.0,100.0
+"Lymphoma_B-cell, Non-Hodgkins",UGDH-HSPB1,33.33,25.0
+"Lymphoma_B-cell, Non-Hodgkins",POLR1C-DNAJB6,25.0,16.67
+"Lymphoma_B-cell, Non-Hodgkins",CDK4-CDKN1A,16.67,41.67
+"Lymphoma_B-cell, Non-Hodgkins",IKBKB-NFKB2,16.67,16.67
+"Lymphoma_B-cell, Non-Hodgkins",JUN-NOLC1,16.67,33.33
+Lymphoma_T-cell,UGDH-HSPB1,81.82,63.64
+Lymphoma_T-cell,CHEK2-RAD9A,72.73,72.73
+Lymphoma_T-cell,HSPA8-CD40,72.73,45.45
+Lymphoma_T-cell,CHEK2-CHEK1,72.73,72.73
+Lymphoma_T-cell,CHEK2-GNAS,63.64,63.64
+Lymphoma_T-cell,CHEK2-TP53BP1,36.36,45.45
+Bone Cancer_Ewings Sarcoma,GOLT1B-HTRA1,24.44,35.56
+Bone Cancer_Ewings Sarcoma,GAPDH-ITGB5,17.78,6.67
+Bone Cancer_Ewings Sarcoma,ACOT9-EGFR,15.56,13.33
+Bone Cancer_Ewings Sarcoma,HSPA1A-AURKB,11.11,6.67
+Bone Cancer_Ewings Sarcoma,FOS-EPHB2,8.89,8.89
+Bone Cancer_Osteosarcoma,EED-TLE1,50.0,28.57
+Bone Cancer_Osteosarcoma,IL1B-MYC,28.57,14.29
+Bone Cancer_Osteosarcoma,IL1B-FYN,21.43,14.29
+Bone Cancer_Osteosarcoma,IL1B-EGR1,21.43,28.57
+Bone Cancer_Osteosarcoma,HSPA8-CD40,14.29,14.29
+Bone Cancer_Chondrosarcoma,EED-TLE1,12.5,25.0
+Bone Cancer_Chondrosarcoma,IL1B-EGR1,12.5,12.5
+Bone Cancer_Chondrosarcoma,IL1B-FYN,12.5,12.5
+Bone Cancer_Chondrosarcoma,ACAT2-SPR,12.5,12.5
+Bone Cancer_Chondrosarcoma,CDK4-HIF1A,12.5,12.5
+Bone Cancer_Chondrosarcoma,EED-HDAC2,12.5,12.5
+Fibroblast_Skin,EED-TLE1,100.0,100.0
+Fibroblast_Skin,IL1B-EGR1,100.0,85.71
+Fibroblast_Skin,IL1B-FYN,71.43,85.71
+Fibroblast_Skin,EED-HDAC2,71.43,85.71
+Fibroblast_Skin,ACAT2-SPR,42.86,42.86
+Fibroblast_Lymphoma,EED-TLE1,75.0,75.0
+Fibroblast_Lymphoma,IL1B-EGR1,75.0,75.0
+Fibroblast_Lymphoma,IL1B-FYN,75.0,75.0
+Fibroblast_Lymphoma,EED-HDAC2,75.0,75.0
+Fibroblast_Lymphoma,IL1B-MYC,75.0,25.0
+Fibroblast_Lymphoma,GLRX-CASP3,25.0,25.0
+Fibroblast_Bone,EED-TLE1,100.0,100.0
+Fibroblast_Bone,IL1B-FYN,88.89,100.0
+Fibroblast_Bone,IL1B-EGR1,77.78,88.89
+Fibroblast_Bone,EED-HDAC2,77.78,88.89
+Fibroblast_Bone,IL1B-MYC,44.44,55.56
+Fibroblast_Bone,ACAT2-SPR,33.33,33.33
+Fibroblast_Soft tissue,EED-TLE1,100.0,100.0
+Fibroblast_Soft tissue,IL1B-EGR1,66.67,100.0
+Fibroblast_Soft tissue,IL1B-FYN,66.67,100.0
+Fibroblast_Soft tissue,EED-HDAC2,33.33,100.0
+Fibroblast_Soft tissue,UBQLN2-RNH1,33.33,33.33
+Fibroblast_Breast,EED-TLE1,100.0,66.67
+Fibroblast_Breast,IL1B-EGR1,100.0,100.0
+Fibroblast_Breast,EED-HDAC2,100.0,100.0
+Fibroblast_Breast,IL1B-FYN,100.0,100.0
+Fibroblast_Breast,ACAT2-SPR,66.67,66.67
+Fibroblast_Bladder,ACAT2-SPR,100.0,100.0
+Fibroblast_Bladder,HSPA8-CD40,100.0,100.0
+Fibroblast_Bladder,EED-TLE1,100.0,100.0
+Fibroblast_Bladder,RB1-PAX8,100.0,100.0
+Fibroblast_Lung,EED-TLE1,100.0,83.33
+Fibroblast_Lung,IL1B-FYN,83.33,66.67
+Fibroblast_Lung,IL1B-EGR1,66.67,83.33
+Fibroblast_Lung,ACAT2-SPR,50.0,33.33
+Fibroblast_Lung,EED-HDAC2,33.33,66.67
+Fibroblast_Colorectal,EED-TLE1,100.0,66.67
+Fibroblast_Colorectal,ACAT2-SPR,100.0,100.0
+Fibroblast_Colorectal,IL1B-EGR1,66.67,100.0
+Fibroblast_Colorectal,EED-HDAC2,66.67,100.0
+Fibroblast_Colorectal,IL1B-FYN,66.67,66.67
+Fibroblast_Upper aerodigestive,EED-TLE1,100.0,100.0
+Fibroblast_Upper aerodigestive,HSPA8-CD40,100.0,100.0
+Fibroblast_Upper aerodigestive,IL1B-FYN,100.0,100.0
+Fibroblast_Upper aerodigestive,ACAT2-SPR,100.0,100.0
+Fibroblast_Upper aerodigestive,GLRX-CASP3,100.0,100.0
+Fibroblast_Upper aerodigestive,IL1B-EGR1,100.0,100.0
+Fibroblast_Upper aerodigestive,EED-HDAC2,100.0,100.0
+Gastric Cancer_Adenocarcinoma,HSPA8-CD40,15.62,12.5
+Gastric Cancer_Adenocarcinoma,FOS-ABL1,9.38,12.5
+Gastric Cancer_Adenocarcinoma,RAE1-MTHFD2,6.25,9.38
+"Gastric Cancer_Adenocarcinoma, mucinous",UGDH-HSPB1,50.0,50.0
+"Gastric Cancer_Adenocarcinoma, mucinous",CHEK2-RAD9A,50.0,50.0
+"Gastric Cancer_Adenocarcinoma, mucinous",CHEK2-GNAS,50.0,50.0
+"Gastric Cancer_Adenocarcinoma, mucinous",CDK4-CDKN1A,50.0,50.0
+"Gastric Cancer_Adenocarcinoma, mucinous",JUN-NOLC1,50.0,50.0
+"Gastric Cancer_Adenocarcinoma, mucinous",CHEK2-CHEK1,50.0,50.0
+"Gastric Cancer_Adenocarcinoma, mucinous",SHC1-IL4R,50.0,50.0
+Gastric Cancer_Small Cell Carcinoma,CDK4-CDKN1A,50.0,50.0
+Gastric Cancer_Small Cell Carcinoma,PTK2B-SYK,50.0,50.0
+Gastric Cancer_Small Cell Carcinoma,POLR1C-DNAJB6,50.0,50.0
+Gastric Cancer_Small Cell Carcinoma,CDK4-CCND3,50.0,50.0
+Gastric Cancer_Small Cell Carcinoma,IKBKB-NFKB2,50.0,50.0
+Gastric Cancer_Small Cell Carcinoma,CDK4-BCL2,50.0,50.0
+Gastric Cancer_Small Cell Carcinoma,CDKN1A-MYC,50.0,50.0
+Gastric Cancer_Small Cell Carcinoma,CDK4-TP53,50.0,50.0
+Gastric Cancer_Duodenal Adenocarcinoma,NFKBIA-AKT1,50.0,50.0
+"Gastric Cancer_Adenocarcinoma, signet ring cell",CHEK2-RB1,33.33,33.33
+Thyroid Cancer_Squamous Cell Carcinoma,EED-TLE1,50.0,50.0
+Thyroid Cancer_Squamous Cell Carcinoma,ACAT2-SPR,50.0,50.0
+Thyroid Cancer_Squamous Cell Carcinoma,IL1B-MYC,50.0,50.0
+Thyroid Cancer_Squamous Cell Carcinoma,IL1B-EGR1,50.0,50.0
+Thyroid Cancer_Squamous Cell Carcinoma,IL1B-FYN,50.0,50.0
+Thyroid Cancer_Squamous Cell Carcinoma,EED-HDAC2,50.0,50.0
+"Thyroid Cancer_Carcinoma, anaplastic",RPA2-CCNH,33.33,33.33
+"Thyroid Cancer_Carcinoma, anaplastic",SRC-HIF1A,33.33,33.33
+"Thyroid Cancer_Carcinoma, papillary",HSPA8-CD40,33.33,33.33
+"Thyroid Cancer_Carcinoma, papillary",PIN1-CCNE2,33.33,33.33
+Thyroid Cancer_Carcinoma,GLRX-CASP3,75.0,75.0
+Thyroid Cancer_Carcinoma,GLRX-PTPN1,75.0,75.0
+Thyroid Cancer_Carcinoma,ERBB3-HSPA1A,25.0,25.0
+Prostate Cancer_Adenocarcinoma,IGF1R-RASA1,14.29,14.29
+Prostate Cancer_Small Cell Carcinoma,AURKA-SKP1,100.0,100.0
+Rhabdoid_Malignant Rhabdoid Tumor,HSPA8-CD40,60.0,40.0
+Rhabdoid_Malignant Rhabdoid Tumor,BIRC5-CASP7,33.33,13.33
+Rhabdoid_Malignant Rhabdoid Tumor,ARHGAP1-RHOA,33.33,13.33
+Rhabdoid_Malignant Rhabdoid Tumor,GLI2-SOX2,26.67,13.33
+Rhabdoid_Atypical Teratoid Rhabdoid Tumor (ATRT),HSPA8-CD40,80.0,80.0
+Rhabdoid_Atypical Teratoid Rhabdoid Tumor (ATRT),HSPA1A-FOS,60.0,60.0
+Rhabdoid_Atypical Teratoid Rhabdoid Tumor (ATRT),HSPA1A-NFKBIB,60.0,60.0
+Rhabdoid_Atypical Teratoid Rhabdoid Tumor (ATRT),HSPA8-CDKN1A,40.0,60.0
+Rhabdoid_Atypical Teratoid Rhabdoid Tumor (ATRT),GLI2-SOX2,40.0,40.0
+Rhabdoid_Atypical Teratoid Rhabdoid Tumor (ATRT),MYC-IPO13,40.0,40.0
+Rhabdoid_Atypical Teratoid Rhabdoid Tumor (ATRT),NFKBIA-AKT1,20.0,20.0
+Gallbladder Cancer_Adenocarcinoma,CAST-RPP38,25.0,25.0
+Gallbladder Cancer_Adenocarcinoma,CAST-HTRA1,25.0,25.0
+Gallbladder Cancer_Adenocarcinoma,RAE1-SMC3,25.0,25.0
+Gallbladder Cancer_Adenocarcinoma,RAE1-NUP88,25.0,25.0
+Gallbladder Cancer_Adenocarcinoma,CAST-PSIP1,25.0,25.0
+Endometrial/Uterine Cancer_Endometrial Adenocarcinoma,MRPL19-MRPS16,8.7,8.7
+Endometrial/Uterine Cancer_Mullerian Carcinoma,EED-TLE1,100.0,100.0
+Endometrial/Uterine Cancer_Mullerian Carcinoma,NR3C1-KDM5A,100.0,100.0
+Endometrial/Uterine Cancer_Mullerian Carcinoma,PSMD2-STUB1,100.0,100.0
+Endometrial/Uterine Cancer_Mullerian Carcinoma,IL1B-FYN,100.0,100.0
+Endometrial/Uterine Cancer_Mullerian Carcinoma,MRPL19-MRPS16,100.0,100.0
+Endometrial/Uterine Cancer_Clear Cell Carcinoma,HDAC2-NR3C1,100.0,100.0
+Endometrial/Uterine Cancer_Clear Cell Carcinoma,TP53BP1-AKAP8L,100.0,100.0
+Endometrial/Uterine Cancer_Malignant Mixed Mullerian Tumor (MMMT),IL1B-FYN,100.0,100.0
+Endometrial/Uterine Cancer_Malignant Mixed Mullerian Tumor (MMMT),TP53-CHEK1,100.0,100.0
+Endometrial/Uterine Cancer_Endometrial Stromal Sarcoma,CDK7-TP53,100.0,100.0
+Endometrial/Uterine Cancer_Endometrial Stromal Sarcoma,PSMD2-TP53BP1,100.0,100.0
+Endometrial/Uterine Cancer_Choriocarcinoma,TBP-SPP1,100.0,50.0
+Endometrial/Uterine Cancer_Choriocarcinoma,FOS-EPHB2,100.0,100.0
+Head and Neck Cancer_Squamous Cell Carcinoma,CAST-HTRA1,12.0,8.0
+Head and Neck Cancer_Squamous Cell Carcinoma,CAST-RPP38,8.0,8.0
+"Head and Neck Cancer_Squamous Cell Carcinoma, pharynx",CALM3-UBE3B,100.0,100.0
+"Head and Neck Cancer_Squamous Cell Carcinoma, oral",CAST-RPP38,16.67,27.78
+"Head and Neck Cancer_Squamous Cell Carcinoma, oral",CAST-HTRA1,16.67,33.33
+"Head and Neck Cancer_Squamous Cell Carcinoma, laryngeal",ERBB3-MUC1,28.57,14.29
+"Head and Neck Cancer_Squamous Cell Carcinoma, laryngeal",MAPKAPK3-BECN1,14.29,14.29
+"Head and Neck Cancer_Squamous Cell Carcinoma, laryngeal",ERBB3-PIK3R3,14.29,14.29
+"Head and Neck Cancer_Squamous Cell Carcinoma, laryngeal",ERBB3-HSPA1A,14.29,14.29
+"Head and Neck Cancer_Squamous Cell Carcinoma, laryngeal",ERBB3-CRK,14.29,14.29
+"Head and Neck Cancer_Squamous Cell Carcinoma, basaloid",CAST-HTRA1,100.0,100.0
+"Head and Neck Cancer_Squamous Cell Carcinoma, basaloid",CAST-RPP38,100.0,100.0
+"Head and Neck Cancer_Squamous Cell Carcinoma, tongue",RAE1-SMC3,40.0,60.0
+"Head and Neck Cancer_Squamous Cell Carcinoma, tongue",EED-TLE1,20.0,20.0
+"Head and Neck Cancer_Squamous Cell Carcinoma, tongue",IL1B-EGR1,20.0,20.0
+"Head and Neck Cancer_Squamous Cell Carcinoma, buccal mucosa",GADD45B-PPARG,100.0,100.0
+"Head and Neck Cancer_Squamous Cell Carcinoma, buccal mucosa",RAE1-SMC3,100.0,100.0
+"Bile Duct Cancer_Cholangiocarcinoma, extrahepatic",CDK2-PSMD2,14.29,14.29
+"Bile Duct Cancer_Cholangiocarcinoma, extrahepatic",CDK2-EZH2,14.29,14.29
+"Bile Duct Cancer_Cholangiocarcinoma, intrahepatic",EED-TLE1,18.18,18.18
+Esophageal Cancer_Adenocarcinoma,HSPA8-CD40,33.33,33.33
+Esophageal Cancer_Adenocarcinoma,HSPA8-CDKN1A,22.22,22.22
+Esophageal Cancer_Adenocarcinoma,UBQLN2-EDEM1,11.11,11.11
+Esophageal Cancer_Adenocarcinoma,INSIG1-HMGCR,11.11,11.11
+Esophageal Cancer_Squamous Cell Carcinoma,CAST-RPP38,10.34,10.34
+"Liver Cancer_Hepatocellular Carcinoma, HBs-antigen carrier",ARFIP2-CDKN2A,100.0,100.0
+Liver Cancer_Hepatoblastoma,RAE1-MTHFD2,50.0,50.0
+Liver Cancer_Hepatoblastoma,CCNA2-MYBL2,50.0,50.0
+Liver Cancer_Hepatoblastoma,CCNA2-IFNAR1,50.0,50.0
+Cervical Cancer_Carcinoma,CAST-RPP38,42.86,28.57
+Cervical Cancer_Carcinoma,RAE1-SMC3,28.57,28.57
+Cervical Cancer_Carcinoma,CAST-HTRA1,28.57,28.57
+Cervical Cancer_Carcinoma,RAE1-NUP88,28.57,28.57
+Cervical Cancer_Squamous Cell Carcinoma,CAST-HTRA1,28.57,14.29
+Cervical Cancer_Squamous Cell Carcinoma,MRPL19-MRPS16,14.29,14.29
+Cervical Cancer_Cervical Adenocarcinoma,UGDH-HSPB1,50.0,50.0
+Cervical Cancer_Cervical Adenocarcinoma,CHEK2-GNAS,50.0,50.0
+Eye Cancer_Retinoblastoma,FOS-EPHB2,50.0,50.0
+Eye Cancer_Retinoblastoma,CASP7-CAPN1,50.0,50.0
+Eye Cancer_Uveal Melanoma,RB1-TFDP1,50.0,25.0
+Eye Cancer_Uveal Melanoma,KDM5B-HDAC2,25.0,25.0
+Adrenal Cancer_Carcinoma,FHL2-EGFR,100.0,100.0
+Adrenal Cancer_Carcinoma,FHL2-MYC,100.0,100.0
+Adrenal Cancer_Carcinoma,HSPA1A-FOS,100.0,100.0
+Adrenal Cancer_Carcinoma,HSPA1A-NFKBIB,100.0,100.0
+Adrenal Cancer_Carcinoma,DAG1-CLIC4,100.0,100.0
+Adrenal Cancer_Carcinoma,HSPA1A-SHC1,100.0,100.0
+Teratoma_Testicular,PAF1-DNMT3A,100.0,100.0
+Teratoma_Testicular,GABPB1-CASP2,100.0,100.0
+Teratoma_Testicular,CDK6-AKT1,100.0,100.0
+Teratoma_Testicular,HSPA1A-AURKB,100.0,100.0
+Teratoma_Testicular,HSPA1A-SHC1,100.0,100.0
+Teratoma_Testicular,CSK-SHC1,100.0,100.0
+Teratoma_Testicular,CDK6-CCNA2,100.0,100.0

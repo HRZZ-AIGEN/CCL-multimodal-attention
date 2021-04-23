@@ -21,4 +21,9 @@ $ pip install torch-spline-conv -f https://pytorch-geometric.com/whl/torch-1.8.0
 $ pip install git+https://github.com/rusty1s/pytorch_geometric.git <br/>
 
 # Run training
-python train_gdsc_benchmark.py --split=blind --seed 42 --batch_size 32 --epochs 300 --gpu 1 <br />
+Train regression model on GDSC dataset. <br/>
+python train_gdsc_benchmark.py --split=blind --seed 42 --batch_size 32 --epochs 300 --gpu 0 <br/>
+<br/>
+
+Train classification models <br/>
+python train_classification.py --dataset GDSC --split=blind --seed 42 --batch_size 32 --epochs 300 --gpu 0
