@@ -213,12 +213,14 @@ class MultimodalAttentionNet(pl.LightningModule, ABC):
 @click.option('--batch_size', default=32, help='Batch size')
 @click.option('--epochs', default=300, help='Number of epochs')
 @click.option('--gpu', default=0, help='CUDA GPU order')
-def main(split, batch_size, epochs, seed, gpu):
+@click.option('--checkpoint', default=None, help='Resume training from checkpoint', type=click.STRING)
+def main(split, batch_size, epochs, seed, gpu, checkpoint):
     conf = Conf(
         lr=1e-4,
         batch_size=batch_size,
         epochs=epochs,
         reduce_lr=True,
+        ckpt_path=checkpoint
     )
     data_dir = Path(create_gdsc_split(split))  # data seed is 42
 
